@@ -1,0 +1,21 @@
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: auto;
+}
+
+@font-face {
+    font-family: 'Besan';
+    src: local('Besan'), url(./fonts/besan/BESAN.otf) format('opentype');
+}
