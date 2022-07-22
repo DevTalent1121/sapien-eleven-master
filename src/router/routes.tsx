@@ -1,7 +1,7 @@
-import { LandingPage /*, PageOne, PageTwo */ } from '../pages';
+import { LandingPage , PageOne, PageTwo  } from '../pages';
 import Home from '@mui/icons-material/Home';
-// import LooksOne from '@mui/icons-material/LooksOne';
-// import LooksTwo from '@mui/icons-material/LooksTwo';
+import LooksOne from '@mui/icons-material/LooksOne';
+import LooksTwo from '@mui/icons-material/LooksTwo';
 
 export const PAGES = [
     {
@@ -10,16 +10,16 @@ export const PAGES = [
         component: LandingPage,
         icon: Home,
     },
-    // {
-    //     title: 'Page One',
-    //     route: 'page-one',
-    //     component: PageOne,
-    //     icon: LooksOne,
-    // },
-    // {
-    //     title: 'Page Two',
-    //     route: 'page-two',
-    //     component: PageTwo,
-    //     icon: LooksTwo,
-    // },
+    {
+        title: 'Achademy',
+        route: 'page-one',
+        component: PageOne,
+        icon: LooksOne,
+    },
+    {
+        title: 'WL Game',
+        route: 'page-two',
+        component: PageTwo,
+        icon: LooksTwo,
+    },
 ];
