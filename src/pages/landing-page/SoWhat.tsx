@@ -4,7 +4,7 @@ import { ParallaxContainer, Section, TransitionGradient } from '../../components
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared/constants';
 
 // Images
-import BLOOD_TEST_RED_BLUE from '../../assets/images/blood_test_red_blue.png';
+import BLOOD_TEST_RED_BLUE from '../../assets/images/bloodspatter.jpg';
 
 // @mui imports
 import styled from '@mui/material/styles/styled';
@@ -81,13 +81,18 @@ export const SoWhat = (): JSX.Element => {
                             our best to help people live healthier and happier lives.
                         </Paragraph>
                         <Paragraph>
-                            We aim to provide a different approach than modern medicine&apos;s “diagnose and treat”
+                            {/* We aim to provide a different approach than modern medicine&apos;s “diagnose and treat”
                             method. To accomplish this we will utilize functional blood chemistry; either recommending
                             panels to have primary care physicians order, or our team health professional ordering
-                            through partnered labs.
+                            through partnered labs. */}
+                            We aim to provide a different approach than modern medicine&apos;s “diagnose and treat”
+                            method. To accomplish this we will utilize functional blood chemistry; recommending
+                            panels to request be ordered, and then analyzing those labe looking for any imblances.
                         </Paragraph>
                         <Paragraph>
-                            Following the panel readings, we can aid in recommending the proper nutrition and
+                            {/* Following the panel readings, we can aid in recommending the proper nutrition and
+                            supplementation on a case by case basis. */}
+                            If any imblances are detected, we can aid in recommending the proper nutrition and
                             supplementation on a case by case basis.
                         </Paragraph>
                     </Section>

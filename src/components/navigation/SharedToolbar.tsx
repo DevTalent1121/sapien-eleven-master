@@ -18,6 +18,10 @@ import Toolbar from '@mui/material/Toolbar';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
+import Button from '@mui/material/Button';
+import { TwitterIconSVG as TwitterIcon } from '../../assets/images/twitter_icon';
+
+
 // icons
 import Menu from '@mui/icons-material/Menu';
 
@@ -36,6 +40,9 @@ const MenuIconButton = styled(IconButton, {
     alignItems: 'center',
     marginRight: theme.spacing(0.5),
 }));
+const twitterButtonStyles = {
+    marginLeft: 'auto'
+}
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
@@ -99,10 +106,21 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     ) : (
                         <Typography variant={'h6'} color={'inherit'} style={{ fontWeight: 600, lineHeight: 1 }}>
                             Sapien Eleven
-                        </Typography>
+                        </Typography>                    
                     )}
-                    <Spacer />
+                        <Button
+                        sx={twitterButtonStyles}
+                        aria-label="twitter"
+                        target="_blank"
+                        href={`https://twitter.com/SapienElevenNFT`}
+                        color={'inherit'}
+                        startIcon={<TwitterIcon color={theme.palette.primary.light} size={32} />}
+                    >
+                        {/* @SapienElevenNFT */}
+                    </Button>
                 </Toolbar>
+                
+                <Spacer />
             </AppBar>
         </>
     );

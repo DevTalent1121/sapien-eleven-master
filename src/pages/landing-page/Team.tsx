@@ -21,8 +21,8 @@ import Typography from '@mui/material/Typography';
 // images
 import JeremyMorrisWeb2 from '../../assets/headshots/jeremy_morris_web2.png';
 import JeremyMorrisWeb3 from '../../assets/headshots/jeremy_morris_web3.png';
-import ThomasDaileyWeb2 from '../../assets/headshots/thomas_dailey_web2.png';
-import ThomasDaileyWeb3 from '../../assets/headshots/thomas_dailey_web3.png';
+// import ThomasDaileyWeb2 from '../../assets/headshots/thomas_dailey_web2.png';
+// import ThomasDaileyWeb3 from '../../assets/headshots/thomas_dailey_web3.png';
 import BrettProthmanWeb2 from '../../assets/headshots/brett_prothman_web2.png';
 import BrettProthmanWeb3 from '../../assets/headshots/brett_prothman_web3.png';
 import NathanKocanWeb2 from '../../assets/headshots/nathan_kocan_web2.png';
@@ -46,7 +46,7 @@ const teamCardData: TeamCardData[] = [
         web3Avatar: JeremyMorrisWeb3,
         description:
             "A licensed Optometrist with a passion for helping people, and health and fitness. He's been in crypto since 2017 and in NFTs since August 2021. He is passionate about web3 and sees this as the perfect opportunity to change healthcare and help others build and sustain a healthy future.",
-        twitterHandle: 'WonderTheBeast',
+        twitterHandle: 'WonderBeast_',
     },
     {
         name: 'Brett Prothman',
@@ -66,15 +66,15 @@ const teamCardData: TeamCardData[] = [
             'A passionate entrepreneurial minded senior IT security and compliance auditor with extensive business growth and development experience and expertise ranging from an athletic clothing line to landscaping. Nate also began his crypto journey in 2017 when he read his first blockchain book. He has since continued to learn everything there is to know about the space.',
         twitterHandle: 'NFTswithNate',
     },
-    {
-        name: 'Thomas Dailey',
-        role: 'Technical Founder',
-        web2Avatar: ThomasDaileyWeb2,
-        web3Avatar: ThomasDaileyWeb3,
-        description:
-            'Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self-taught front-end web developer who will stop at nothing to prove himself. After getting wrekt investing in crypto back in 2017, he came back with renewed vigor to build an empire in web3.',
-        twitterHandle: 'daileytj',
-    },
+    // {
+    //     name: 'Thomas Dailey',
+    //     role: 'Technical Founder',
+    //     web2Avatar: ThomasDaileyWeb2,
+    //     web3Avatar: ThomasDaileyWeb3,
+    //     description:
+    //         'Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self-taught front-end web developer who will stop at nothing to prove himself. After getting wrekt investing in crypto back in 2017, he came back with renewed vigor to build an empire in web3.',
+    //     twitterHandle: 'daileytj',
+    // },
 ];
 const sapienElevenFlipCardStyles = {
     minHeight: { xs: 400, sm: 350, md: 504, lg: 460, xl: 510 },
@@ -121,7 +121,7 @@ export const Team = (): JSX.Element => {
         >
             <Grid container spacing={2} sx={{ mt: 1 }}>
                 {teamCardData.map((data) => (
-                    <Grid key={data.name} item xs={12} sm={12} md={6} lg={4} xl={3}>
+                    <Grid key={data.name} item xs={12} sm={12} md={6} lg={4} xl={4}>
                         <FlipCard useHover sx={sapienElevenFlipCardStyles}>
                             <Card sx={cardStyles} elevation={4}>
                                 <CenteredCardContent>

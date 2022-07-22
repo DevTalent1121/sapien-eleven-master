@@ -18,7 +18,7 @@ import Typography from '@mui/material/Typography';
 
 // icons
 import AttachMoney from '@mui/icons-material/AttachMoney';
-import { Diagnostic } from '@brightlayer-ui/icons-mui';
+// import { Diagnostic } from '@brightlayer-ui/icons-mui';
 import Healing from '@mui/icons-material/Healing';
 import School from '@mui/icons-material/School';
 
@@ -39,13 +39,13 @@ const cardData: SapienElevenCardData[] = [
         description:
             "An exclusive platform to educate community members on wellness and the body's chemistry as well as talks and seminars featuring world-class health professionals",
     },
-    {
-        title: 'Wellness Portal',
-        frontIcon: <Diagnostic color={'primary'} />,
-        backIcon: <Diagnostic color={'primary'} style={centeredCardContentIconStyles} />,
-        description:
-            'A portal for community members to chat with professionals and one another about their health as well as testing services to measure in-depth metabolic markers and other comprehensive lab work as needed to identify the root cause of any symptoms or imbalances',
-    },
+    // {
+    //     title: 'Wellness Portal',
+    //     frontIcon: <Diagnostic color={'primary'} />,
+    //     backIcon: <Diagnostic color={'primary'} style={centeredCardContentIconStyles} />,
+    //     description:
+    //         'A portal for community members to chat with professionals and one another about their health as well as testing services to measure in-depth metabolic markers and other comprehensive lab work as needed to identify the root cause of any symptoms or imbalances',
+    // },
     {
         title: 'MarketPlace',
         frontIcon: <AttachMoney color={'primary'} />,
@@ -103,16 +103,14 @@ export const WhatIsSapienEleven = (): JSX.Element => {
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Paragraph>
-                Sapien Eleven is a Web3 foundational wellness brand that aims to educate and improve the health and
-                wellness of our community members through correcting imbalances in the body&apos;s chemistry, thus
-                preventing disease before it begins.
+                Sapien Eleven is a NFT brand that aims to educate and improve the health and wellness of our community members trough prevention.
             </Paragraph>
             <Paragraph>
                 We aim to provide a different approach than modern medicine&apos;s “diagnose and treat” method.
             </Paragraph>
             <Grid container spacing={2} sx={{ mt: 1 }}>
                 {cardData.map((data) => (
-                    <Grid key={data.title} item xs={12} sm={12} md={6} lg={3} xl={3}>
+                    <Grid key={data.title} item xs={12} sm={12} md={6} lg={4} xl={4}>
                         <FlipCard useHover sx={sapienElevenFlipCardStyles}>
                             <Card sx={cardStyles} elevation={4}>
                                 <CenteredCardContent>

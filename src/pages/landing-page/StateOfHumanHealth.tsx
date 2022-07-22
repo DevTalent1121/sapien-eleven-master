@@ -4,7 +4,7 @@ import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 import { Section, ParallaxContainer, TransitionGradient } from '../../components';
 
 // Images
-import SAD from '../../assets/images/sad_100.png';
+import SAD from '../../assets/images/shutterstock_1543784279.jpg';
 
 // @mui imports
 import styled from '@mui/material/styles/styled';
@@ -84,8 +84,10 @@ export const StateOfHumanHealth: React.FC = (): JSX.Element => {
                                 Western Medicine
                             </Typography>
                             <Paragraph>
-                                The Western Medicine approach is more common than ever. Practitioners are taught to
+                                {/* The Western Medicine approach is more common than ever. Practitioners are taught to
                                 identify signs and symptoms, then “treat” or ”manage” with pharmaceuticals rather than
+                                prevention. */}
+                                Identify signs and symptoms, then “treat” or ”manage” with pharmaceuticals rather than
                                 prevention.
                             </Paragraph>
                         </Grid>
@@ -118,8 +120,11 @@ export const StateOfHumanHealth: React.FC = (): JSX.Element => {
                                 Processed Diets
                             </Typography>
                             <Paragraph>
-                                What happened to going to the market for fresh food? More and more people rely on fast
+                                {/* What happened to going to the market for fresh food? More and more people rely on fast
                                 or processed foods because it&apos;s convenient. The foods we eat are missing key
+                                nutrients. */}
+                                What happened to going to the market for fresh food? More and more people rely on fast
+                                or processed foods because it&apos;s convenient. These foods are void of key
                                 nutrients.
                             </Paragraph>
                         </Grid>
@@ -151,8 +156,9 @@ export const StateOfHumanHealth: React.FC = (): JSX.Element => {
                                 Big Pharma
                             </Typography>
                             <Paragraph>
-                                The large pharmaceutical companies are funding medical institutions and driving the
-                                education for practitioners.
+                                {/* The large pharmaceutical companies are funding medical institutions and driving the
+                                education for practitioners. */}
+                                Large pharmaceutical companies are driving the education taught in medical institutions.
                             </Paragraph>
                         </Grid>
                     </Grid>
