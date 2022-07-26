@@ -18,15 +18,22 @@ import Toolbar from '@mui/material/Toolbar';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { TwitterIconSVG as TwitterIcon } from '../../assets/images/twitter_icon';
 
 
-// icons
+// Images and icons
 import Menu from '@mui/icons-material/Menu';
+import LogoImage from '../../assets/images/RedLogo500.png';
+import { Link } from '@mui/material';
+
+// web3
+
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
+    // color?: 'primary' | 'secondary' | 'default';
     color?: 'primary' | 'secondary' | 'default';
     subtitle?: string;
     navigationIcon?: JSX.Element;
@@ -39,11 +46,8 @@ const MenuIconButton = styled(IconButton, {
     display: 'flex',
     alignItems: 'center',
     marginRight: theme.spacing(0.5),
+    color:theme.palette.primary.main
 }));
-const twitterButtonStyles = {
-    marginLeft: 'auto'
-}
-
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
     const icon = navigationIcon ? navigationIcon : <Menu />;
@@ -57,6 +61,29 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const md = useMediaQuery(theme.breakpoints.up('md'));
     const dispatch = useDispatch();
 
+    // web3
+    // const { active, account, library, connector, activate, deactivate } = useWeb3React()
+
+
+    const StyledConnectButton = styled(Button)(() => ({
+        minWidth: 150,
+        fontWeight: 600,
+        // margin: `${theme.spacing(3)} 0 0`,
+        marginLeft:'auto',
+        borderColor: theme.palette.primary.main,
+        color: theme.palette.primary.main
+    }));
+
+    const StyledTwitterButton = styled(Button)(()=>({
+        marginLeft:'auto',
+        color: theme.palette.background.paper
+    }))
+    const StyledRightBox = styled(Box)(() => ({
+        marginLeft:'auto',
+        color: theme.palette.background.paper
+    }));
+    
+    
     const getNavigationIcon = useCallback(
         () => (
             <>
@@ -85,6 +112,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 elevation={0}
                 style={{
                     zIndex: 1000,
+                    backgroundColor: theme.palette.background.paper,
                     width: `calc(100% - ${sidebarOpen ? (sm ? 0 : 350) : 0}px)`,
                     right: sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
@@ -104,20 +132,29 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                             secondary={subtitle}
                         />
                     ) : (
-                        <Typography variant={'h6'} color={'inherit'} style={{ fontWeight: 600, lineHeight: 1 }}>
-                            Sapien Eleven
-                        </Typography>                    
+                        // <Typography variant={'h6'} color={'inherit'} style={{ fontWeight: 600, lineHeight: 1 }}>
+                        //     Sapien Eleven
+                        // </Typography>
+                        <Link href='/'>
+                            <img src={LogoImage} alt={"Logo"} style={{ width: 160 }} />
+                        </Link>
+
                     )}
-                        <Button
-                        sx={twitterButtonStyles}
-                        aria-label="twitter"
-                        target="_blank"
-                        href={`https://twitter.com/SapienElevenNFT`}
-                        color={'inherit'}
-                        startIcon={<TwitterIcon color={theme.palette.primary.light} size={32} />}
-                    >
-                        {/* @SapienElevenNFT */}
-                    </Button>
+
+                    <StyledRightBox>
+                        <StyledConnectButton variant={'outlined'} color={'inherit'} onClick={(): void => {}}>
+                                Connect
+                            </StyledConnectButton>
+                            <StyledTwitterButton
+                            aria-label="twitter"
+                            // target="_blank"
+                            href={`https://twitter.com/SapienElevenNFT`}
+                            color={'inherit'}
+                            startIcon={<TwitterIcon color={theme.palette.primary.main} size={32} />}
+                        >
+                            {/* @SapienElevenNFT */}
+                        </StyledTwitterButton>
+                    </StyledRightBox>
                 </Toolbar>
                 
                 <Spacer />
