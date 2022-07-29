@@ -29,7 +29,9 @@ import LogoImage from '../../assets/images/RedLogo500.png';
 import { Link } from '@mui/material';
 
 // web3
-
+// import contract from '../../contracts/SapienNFT.json';
+// const contractAdrress = '0x7f391509B97Fa47238d1Ff0830F30D7e9A8D49bD';
+// const abi = contract.abi;
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -64,7 +66,19 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     // web3
     // const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
+//   const checkWalletIsConnected = ():void => {return; }
 
+//   const connectWalletHandler = ():void => {return; }
+
+//   const mintNftHandler = ():void => { return;}
+
+//   const connectWalletButton = ():ReactJSXElement => {
+//     return (
+//       <button onClick={connectWalletHandler} className='cta-button connect-wallet-button'>
+//         Connect Wallet
+//       </button>
+//     )
+//   }
     const StyledConnectButton = styled(Button)(() => ({
         minWidth: 150,
         fontWeight: 600,
@@ -135,7 +149,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         // <Typography variant={'h6'} color={'inherit'} style={{ fontWeight: 600, lineHeight: 1 }}>
                         //     Sapien Eleven
                         // </Typography>
-                        <Link href='/'>
+                        <Link href='/`'>
                             <img src={LogoImage} alt={"Logo"} style={{ width: 160 }} />
                         </Link>
 
@@ -145,6 +159,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         <StyledConnectButton variant={'outlined'} color={'inherit'} onClick={(): void => {}}>
                                 Connect
                             </StyledConnectButton>
+                            {/* {connectWalletButton()} */}
                             <StyledTwitterButton
                             aria-label="twitter"
                             // target="_blank"

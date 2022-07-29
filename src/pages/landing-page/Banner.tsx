@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Images
-import BackgroundImage from '../../assets/images/network_texture_red_700.png';
+// import BackgroundImage from '../../assets/images/network_texture_red_700.png';
 
 // @mui imports
 import styled from '@mui/material/styles/styled';
@@ -20,8 +20,9 @@ const StyledBanner = styled(Box)(({ theme }) => ({
     width: '100%',
     padding: `${theme.spacing(20)} ${theme.spacing(4)}`,
     color: theme.palette.primary.contrastText,
-    background: `url(${BackgroundImage})`,
-    backgroundColor: theme.palette.primary.main,
+    // background: `url(${BackgroundImage})`,
+    // backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'transparent',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     [theme.breakpoints.up('sm')]: {
