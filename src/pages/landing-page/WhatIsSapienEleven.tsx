@@ -99,8 +99,8 @@ export const WhatIsSapienEleven = (): JSX.Element => {
         <Section
             title={'What is Sapien Eleven?'}
             align={'left'}
-            // background={'light'}
-            background={'transparent'}
+            background={'light'}
+            // background={'transparent'}
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Paragraph>

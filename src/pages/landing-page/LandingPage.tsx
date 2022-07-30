@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { ParallaxContainer, Section, SharedToolbar, TransitionGradient } from '../../components';
+import { SharedToolbar, TransitionGradient } from '../../components';
 import * as Colors from '../../themes/colors';
-
 
 // Landing Page Sections
 import { Banner } from './Banner';
@@ -18,41 +17,21 @@ import { WhatNow } from './WhatNow';
 import { Team } from './Team';
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 
-//images
-import BackgroundImage from '../../assets/images/GraphicBackgroundText.png';
-import { Box } from '@mui/material';
-
-
 export const LandingPage: React.FC = (): JSX.Element => {
     usePageTitle('');
-    const [stateOfHealthContentHeight, setStateOfHealthContentHeight] = useState(0);
-
-    const onStateOfHealthContentChange = (height: number): void => {
-        setStateOfHealthContentHeight(height);
-    };
 
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
 
-            <ParallaxContainer
-            backgroundImage={BackgroundImage}
-            height={`${stateOfHealthContentHeight + TRANSITION_GRADIENT_HEIGHT * 2}px`}
-            >
-                <Box>
-                <Section
-                onHeightChange={onStateOfHealthContentChange}>
-                    <Banner />
-                    <TransitionGradient
-                        offset={`-${TRANSITION_GRADIENT_HEIGHT}px`}
-                        gradientStart={'#ffffff00'}
-                        gradientEnd={'#fff'}
-                    />
+            <Banner />
+            <TransitionGradient
+                offset={`-${TRANSITION_GRADIENT_HEIGHT}px`}
+                gradientStart={'#ffffff00'}
+                gradientEnd={'#fff'}
+            />
 
-                    <WhatIsSapienEleven />
-                </Section>
-                </Box>
-            </ParallaxContainer>
+            <WhatIsSapienEleven />
 
             <StateOfHumanHealth />
 

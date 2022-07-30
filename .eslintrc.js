@@ -12,6 +12,7 @@ module.exports =  {
         '@typescript-eslint/no-empty-function': 'off',
         'no-empty-function': 'off',
         'react/jsx-key': 'off',
+        'no-console': 'off',
         '@typescript-eslint/naming-convention': [
             'error',
             {

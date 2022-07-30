@@ -80,7 +80,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 //     )
 //   }
     const StyledConnectButton = styled(Button)(() => ({
-        minWidth: 150,
+        minWidth: 100,
         fontWeight: 600,
         // margin: `${theme.spacing(3)} 0 0`,
         marginLeft:'auto',
