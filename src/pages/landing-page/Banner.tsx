@@ -67,7 +67,7 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     backgroundSize: 'contain',
     height: '90vh',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
+    backgroundPosition: 'center bottom',
     overflow: 'hidden',
     [theme.breakpoints.down('lg')]: {
         // paddingTop: theme.spacing(19),
@@ -75,44 +75,44 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     },
     [theme.breakpoints.down('md')]: {
         // paddingTop: theme.spacing(19),
-        height: '40vh'
+        height: '30vh'
     },
 }));
 
-const BubbleBox = styled(Box)(({theme})=>({
-    width: '100%',
-    color: theme.palette.primary.contrastText,
-    height: '40vh',
-    paddingTop: '50%',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center'
-}));
+// const BubbleBox = styled(Box)(({theme})=>({
+//     width: '100%',
+//     color: theme.palette.primary.contrastText,
+//     height: '40vh',
+//     paddingTop: '50%',
+//     backgroundRepeat: 'no-repeat',
+//     backgroundPosition: 'center center'
+// }));
 
 export const Banner: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const md = useMediaQuery(theme.breakpoints.down('md'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const [offset, setOffset] = useState(0)
+    const onScroll:any = () => {
+            const offsetPos = document.body.scrollTop;
+            setOffset(offsetPos);
+            console.log('--aa',offsetPos);
+    };
 
     const BubbleContainer = styled(Box)(()=>({
         width: '100%',
         height: '100%',
         backgroundRepeat: 'no-repeat',        
-        transform: [`translateY(${offset}px)`], 
+        transform: [`translateY(${offset*3}px)`], 
         backgroundSize:'contain',
         backgroundImage: `url(${BubbleImage})`,
-        backgroundPosition: 'center center',
+        backgroundPosition: 'center bottom',
     }));
     
     useEffect(() => {
-        
-        window.addEventListener("scroll", onScroll);
-        console.log(offset);
-        return () => window.removeEventListener("scroll", onScroll);        
-    });
-    const onScroll = () => {
-        setOffset(window.pageYOffset);
-    };
+            document.body.addEventListener("scroll", onScroll);
+            return () => document.body.removeEventListener("scroll", onScroll);        
+    },[]);
     return (
 
             <StyledBanner>
