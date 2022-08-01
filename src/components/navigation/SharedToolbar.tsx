@@ -80,17 +80,26 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 //     )
 //   }
     const StyledConnectButton = styled(Button)(() => ({
-        minWidth: 100,
+        minWidth: 150,
         fontWeight: 600,
         // margin: `${theme.spacing(3)} 0 0`,
         marginLeft:'auto',
         borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.main
+        color: theme.palette.primary.main,
+
+        [theme.breakpoints.down('md')]: {
+            padding: 3,
+            minWidth: 60,
+        },
+    
     }));
 
     const StyledTwitterButton = styled(Button)(()=>({
         marginLeft:'auto',
-        color: theme.palette.background.paper
+        color: theme.palette.background.paper,
+        [theme.breakpoints.down('md')]: {
+            padding: 0,
+        },
     }))
     const StyledRightBox = styled(Box)(() => ({
         marginLeft:'auto',

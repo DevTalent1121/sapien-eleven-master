@@ -14,7 +14,7 @@ import useTheme from '@mui/styles/useTheme';
 import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { ParallaxContainer } from '../../components';
+// import { ParallaxContainer } from '../../components';
 // import { ParallaxContainer } from '../../components';
 
 // const StyledBanner = styled(Box)(({ theme }) => ({
@@ -68,6 +68,7 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     height: '90vh',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
+    overflow: 'hidden',
     [theme.breakpoints.down('lg')]: {
         // paddingTop: theme.spacing(19),
         height: '60vh'
@@ -93,30 +94,33 @@ export const Banner: React.FC = (): JSX.Element => {
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const [offset, setOffset] = useState(0)
 
-    const BubbleContainer = styled(ParallaxContainer)(()=>({
+    const BubbleContainer = styled(Box)(()=>({
         width: '100%',
+        height: '100%',
         backgroundRepeat: 'no-repeat',        
-        transform: [`translateY(${offset - offset}px)`], 
-        // backgroundSize:'contain',
+        transform: [`translateY(${offset}px)`], 
+        backgroundSize:'contain',
+        backgroundImage: `url(${BubbleImage})`,
+        backgroundPosition: 'center center',
     }));
     
     useEffect(() => {
-      window.onscroll = ():void => {
+        
+        window.addEventListener("scroll", onScroll);
+        console.log(offset);
+        return () => window.removeEventListener("scroll", onScroll);        
+    });
+    const onScroll = () => {
         setOffset(window.pageYOffset);
-        // console.log("aaa");
-      }
-    }, []);
-
+    };
     return (
 
             <StyledBanner>
                 {/* <img src={BackgroundImage} sx={{width:'100%'}} /> */}
                 <BannerBackgroundBox>
-                    <BubbleContainer
-                        backgroundImage= {BubbleImage}
-                            >                    
-                        <BubbleBox>
-                        </BubbleBox>
+                    <BubbleContainer>                    
+                        {/* <BubbleBox>
+                        </BubbleBox> */}
                     </BubbleContainer>
                 </BannerBackgroundBox>
                 <StyledTypography variant={sm ? 'h5' : md ? 'h4' : 'h3'}>

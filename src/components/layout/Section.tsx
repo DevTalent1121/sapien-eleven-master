@@ -36,7 +36,7 @@ export const Section: React.FC<SectionProps> = (props) => {
 
         updateContentHeight();
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        /*/ eslint-disable-next-line @typescript-eslint/no-unused-vars*/
         return (_: any) => {
             window.removeEventListener('resize', updateContentHeight);
         };
