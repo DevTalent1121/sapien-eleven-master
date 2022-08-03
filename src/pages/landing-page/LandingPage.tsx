@@ -8,6 +8,7 @@ import { Banner } from './Banner';
 import { WhatIsSapienEleven } from './WhatIsSapienEleven';
 import { StateOfHumanHealth } from './StateOfHumanHealth';
 import { ChronicDisease } from './ChronicDisease';
+import { InteractiveGraph } from './InteractiveGraph';
 import { SoWhat } from './SoWhat';
 import { Footer } from './Footer';
 
@@ -36,6 +37,8 @@ export const LandingPage: React.FC = (): JSX.Element => {
             <StateOfHumanHealth />
 
             <ChronicDisease />
+
+            <InteractiveGraph />
 
             <SoWhat />
 

@@ -63,7 +63,7 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     // padding: `${theme.spacing(20)} ${theme.spacing(4)}`,
     color: theme.palette.primary.contrastText,
     background: `url(${BackgroundImage})`,
-    // backgroundColor: theme.palette.primary.main,
+    // borderBottom:  `5px solid ${theme.palette.primary.main}`,
     backgroundSize: 'contain',
     height: '90vh',
     backgroundRepeat: 'no-repeat',
