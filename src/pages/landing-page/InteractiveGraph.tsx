@@ -9,7 +9,7 @@ import useTheme from '@mui/styles/useTheme';
 
 // components
 import Box from '@mui/material/Box';
-import { Tab, Tabs } from '@mui/material';
+import { styled, Tab, Tabs } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 // Graph Component
@@ -38,7 +38,7 @@ function TabPanel(props: TabPanelProps) {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ pt: 3,pb:3 }}>
             <Typography>{children}</Typography>
           </Box>
         )}
@@ -53,15 +53,40 @@ function TabPanel(props: TabPanelProps) {
     };
   }
 
+  const CustomTooltip = ({ active, payload, label }: any) => {
+
+    if (active && payload && payload.length) {
+      return (
+        <Box className="custom-tooltip" sx={{border:'1px solid white',marginLeft:'-40px', padding: '10px',backgroundColor: '#333',color:'#f5f4f5', width:'100%'}}>
+          <Typography className="label" sx={{color: payload[1].color}}>{`${label}`}</Typography>
+          <Typography className="label" sx={{color: payload[0].color}}>{`${payload[0].name} : ${payload[0].value*1000}`}</Typography>
+          <Typography className="label"  sx={{color: payload[1].color}}>{`${payload[1].name} : ${payload[1].value}`}</Typography>
+        </Box>
+      );
+    }
+  
+    return null;
+  };
 export const InteractiveGraph = (): JSX.Element => {
     const theme = useTheme();
     const md = useMediaQuery(theme.breakpoints.down('md'));
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
     };
+
+    //Tabs to show graphs
+
+    const  styledTooltip = styled(Tabs)(() => ({
+      width: '100%',
+      [theme.breakpoints.down('md')]: {
+        // paddingTop: theme.spacing(19),
+        width: '50%',
+    },
+    }));
   
 
     // Graph Data
@@ -129,38 +154,76 @@ export const InteractiveGraph = (): JSX.Element => {
     //     {name:'2018', dv: 422365, hv: 481551, ov: 384191, uv: 3021},
     //     {name:'2019', dv: 439379, hv: 495201, ov: 393859, uv: 3175},
     // ];
+    // const dataDeathArr =  [
+    //     {name:'1990', dv: 2634.08, hv: 5036.27, ov: 2321.55, uv: 612},
+    //     {name:'1991', dv: 2534.33, hv: 5017.15, ov: 2370.71, uv: 672},
+    //     {name:'1992', dv: 2449.54, hv: 4994.54, ov: 2416.96, uv: 728},
+    //     {name:'1993', dv: 2448.52, hv: 5102.54, ov: 2520.46, uv: 775},
+    //     {name:'1994', dv: 2432.62, hv: 5122.09, ov: 2585.03, uv: 818},
+    //     {name:'1995', dv: 2462.13, hv: 5169.28, ov: 2659.15, uv: 866},
+    //     {name:'1996', dv: 2488.22, hv: 5157.25, ov: 2699.38, uv: 915},
+    //     {name:'1997', dv: 2524.82, hv: 5143.02, ov: 2735.97, uv: 966},
+    //     {name:'1998', dv: 2595.47, hv: 5172.40, ov: 2792.81, uv: 1019},
+    //     {name:'1999', dv: 2695.67, hv: 5238.04, ov: 2874.96, uv: 1079},
+    //     {name:'2000', dv: 2757.14, hv: 5221.47, ov: 2928.65, uv: 1157},
+    //     {name:'2001', dv: 2835.39, hv: 5156.88, ov: 2980.50, uv: 1257},
+    //     {name:'2002', dv: 2948.90, hv: 5057.48, ov: 3034.80, uv: 1366},
+    //     {name:'2003', dv: 3049.97, hv: 4897.05, ov: 3066.68, uv: 1476},
+    //     {name:'2004', dv: 3098.09, hv: 4674.23, ov: 3050.79, uv: 1583},
+    //     {name:'2005', dv: 3201.68, hv: 4604.57, ov: 3104.55, uv: 1694},
+    //     {name:'2006', dv: 3275.00, hv: 4490.55, ov: 3118.55, uv: 1807},
+    //     {name:'2007', dv: 3383.07, hv: 4371.57, ov: 3127.58, uv: 1922},
+    //     {name:'2008', dv: 3537.57, hv: 4313.00, ov: 3174.77, uv: 2008},
+    //     {name:'2009', dv: 3625.32, hv: 4230.02, ov: 3198.25, uv: 2106},
+    //     {name:'2010', dv: 3667.07, hv: 4204.22, ov: 3224.89, uv: 2181},
+    //     {name:'2011', dv: 3708.83, hv: 4263.23, ov: 3290.75, uv: 2254},
+    //     {name:'2012', dv: 3735.44, hv: 4307.13, ov: 3346.56, uv: 2347},
+    //     {name:'2013', dv: 3777.75, hv: 4379.70, ov: 3418.27, uv: 2405},
+    //     {name:'2014', dv: 3828.30, hv: 4459.18, ov: 3497.79, uv: 2527},
+    //     {name:'2015', dv: 3911.05, hv: 4569.36, ov: 3596.59, uv: 2674},
+    //     {name:'2016', dv: 3995.15, hv: 4655.58, ov: 3693.96, uv: 2795},
+    //     {name:'2017', dv: 4052.99, hv: 4672.48, ov: 3732.07, uv: 2905},
+    //     {name:'2018', dv: 4223.65, hv: 4815.51, ov: 3841.91, uv: 3021},
+    //     {name:'2019', dv: 4393.79, hv: 4952.01, ov: 3938.59, uv: 3175},
+    // ];
+
     const dataDeathArr =  [
-        {name:'1990', dv: 2634.08, hv: 5036.27, ov: 2321.55, uv: 612},
-        {name:'1991', dv: 2534.33, hv: 5017.15, ov: 2370.71, uv: 672},
-        {name:'1992', dv: 2449.54, hv: 4994.54, ov: 2416.96, uv: 728},
-        {name:'1993', dv: 2448.52, hv: 5102.54, ov: 2520.46, uv: 775},
-        {name:'1994', dv: 2432.62, hv: 5122.09, ov: 2585.03, uv: 818},
-        {name:'1995', dv: 2462.13, hv: 5169.28, ov: 2659.15, uv: 866},
-        {name:'1996', dv: 2488.22, hv: 5157.25, ov: 2699.38, uv: 915},
-        {name:'1997', dv: 2524.82, hv: 5143.02, ov: 2735.97, uv: 966},
-        {name:'1998', dv: 2595.47, hv: 5172.40, ov: 2792.81, uv: 1019},
-        {name:'1999', dv: 2695.67, hv: 5238.04, ov: 2874.96, uv: 1079},
-        {name:'2000', dv: 2757.14, hv: 5221.47, ov: 2928.65, uv: 1157},
-        {name:'2001', dv: 2835.39, hv: 5156.88, ov: 2980.50, uv: 1257},
-        {name:'2002', dv: 2948.90, hv: 5057.48, ov: 3034.80, uv: 1366},
-        {name:'2003', dv: 3049.97, hv: 4897.05, ov: 3066.68, uv: 1476},
-        {name:'2004', dv: 3098.09, hv: 4674.23, ov: 3050.79, uv: 1583},
-        {name:'2005', dv: 3201.68, hv: 4604.57, ov: 3104.55, uv: 1694},
-        {name:'2006', dv: 3275.00, hv: 4490.55, ov: 3118.55, uv: 1807},
-        {name:'2007', dv: 3383.07, hv: 4371.57, ov: 3127.58, uv: 1922},
-        {name:'2008', dv: 3537.57, hv: 4313.00, ov: 3174.77, uv: 2008},
-        {name:'2009', dv: 3625.32, hv: 4230.02, ov: 3198.25, uv: 2106},
-        {name:'2010', dv: 3667.07, hv: 4204.22, ov: 3224.89, uv: 2181},
-        {name:'2011', dv: 3708.83, hv: 4263.23, ov: 3290.75, uv: 2254},
-        {name:'2012', dv: 3735.44, hv: 4307.13, ov: 3346.56, uv: 2347},
-        {name:'2013', dv: 3777.75, hv: 4379.70, ov: 3418.27, uv: 2405},
-        {name:'2014', dv: 3828.30, hv: 4459.18, ov: 3497.79, uv: 2527},
-        {name:'2015', dv: 3911.05, hv: 4569.36, ov: 3596.59, uv: 2674},
-        {name:'2016', dv: 3995.15, hv: 4655.58, ov: 3693.96, uv: 2795},
-        {name:'2017', dv: 4052.99, hv: 4672.48, ov: 3732.07, uv: 2905},
-        {name:'2018', dv: 4223.65, hv: 4815.51, ov: 3841.91, uv: 3021},
-        {name:'2019', dv: 4393.79, hv: 4952.01, ov: 3938.59, uv: 3175},
-    ];
+      {name:'1990', dv: 263.408, hv: 503.627, ov: 232.155, uv: 612},
+      {name:'1991', dv: 253.433, hv: 501.715, ov: 237.071, uv: 672},
+      {name:'1992', dv: 244.954, hv: 499.454, ov: 241.696, uv: 728},
+      {name:'1993', dv: 244.852, hv: 510.254, ov: 252.046, uv: 775},
+      {name:'1994', dv: 243.262, hv: 512.209, ov: 258.503, uv: 818},
+      {name:'1995', dv: 246.213, hv: 516.928, ov: 265.915, uv: 866},
+      {name:'1996', dv: 248.822, hv: 515.725, ov: 269.938, uv: 915},
+      {name:'1997', dv: 252.482, hv: 514.302, ov: 273.597, uv: 966},
+      {name:'1998', dv: 259.547, hv: 517.240, ov: 279.281, uv: 1019},
+      {name:'1999', dv: 269.567, hv: 523.804, ov: 287.496, uv: 1079},
+      {name:'2000', dv: 275.714, hv: 522.147, ov: 292.865, uv: 1157},
+      {name:'2001', dv: 283.539, hv: 515.688, ov: 298.050, uv: 1257},
+      {name:'2002', dv: 294.890, hv: 505.748, ov: 303.480, uv: 1366},
+      {name:'2003', dv: 304.997, hv: 489.705, ov: 306.668, uv: 1476},
+      {name:'2004', dv: 309.809, hv: 467.423, ov: 305.079, uv: 1583},
+      {name:'2005', dv: 320.168, hv: 460.457, ov: 310.455, uv: 1694},
+      {name:'2006', dv: 327.500, hv: 449.055, ov: 311.855, uv: 1807},
+      {name:'2007', dv: 338.307, hv: 437.157, ov: 312.758, uv: 1922},
+      {name:'2008', dv: 353.757, hv: 431.300, ov: 317.477, uv: 2008},
+      {name:'2009', dv: 362.532, hv: 423.002, ov: 319.825, uv: 2106},
+      {name:'2010', dv: 366.707, hv: 420.422, ov: 322.489, uv: 2181},
+      {name:'2011', dv: 370.883, hv: 426.323, ov: 329.075, uv: 2254},
+      {name:'2012', dv: 373.544, hv: 430.713, ov: 334.656, uv: 2347},
+      {name:'2013', dv: 377.775, hv: 437.970, ov: 341.827, uv: 2405},
+      {name:'2014', dv: 382.830, hv: 445.918, ov: 349.779, uv: 2527},
+      {name:'2015', dv: 391.105, hv: 456.936, ov: 359.659, uv: 2674},
+      {name:'2016', dv: 399.515, hv: 465.558, ov: 369.396, uv: 2795},
+      {name:'2017', dv: 405.299, hv: 467.248, ov: 373.207, uv: 2905},
+      {name:'2018', dv: 422.365, hv: 481.551, ov: 384.191, uv: 3021},
+      {name:'2019', dv: 439.379, hv: 495.201, ov: 393.859, uv: 3175},
+  ];
+
+    const currencyFormatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
     return  (
         <Section
             title={'Graph'}
@@ -168,38 +231,45 @@ export const InteractiveGraph = (): JSX.Element => {
             fontColor={Colors.white[50]}
             dividerColor={Colors.white[50]}
             style={{ backgroundColor: Colors.black[900] }}
-            sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
+            sx={{ px: md ? 1 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={value} onChange={handleChange} aria-label="Disease chart">
+            <Tabs value={value} onChange={handleChange} aria-label="Disease chart" orientation={sm? 'vertical':'horizontal'}>
                 <Tab label="CANCERS" {...a11yProps(0)} />
-                <Tab label="DEATHS" {...a11yProps(1)} />
+                <Tab label="DIABETES" {...a11yProps(1)} />
+                <Tab label="HYPERTENSION" {...a11yProps(2)} />
+                <Tab label="OBESITY" {...a11yProps(3)} />
             </Tabs>
             </Box>
-            <TabPanel value={value} index={0}>
+            <TabPanel  value={value} index={0}>
                 <ResponsiveContainer width="100%" minHeight={500}>
                     <ComposedChart
                     // height={500}
                     data={dataCancerArr}
                     margin={{
                     top: 20,
+                    left: 0,
+                    right: 0,
                     bottom: 20,
                     }}
                     >
-                        <CartesianGrid stroke="#f5f5f5" />
+                        <CartesianGrid stroke="#f5f5f5" vertical={false} />
                         <XAxis dataKey="name" scale="band" />
-                        <YAxis />
+                        <YAxis yAxisId="left" dataKey="uv" orientation='left'/>
+                        <YAxis yAxisId="right" dataKey="pv" orientation='right' tickFormatter={value => currencyFormatter.format(value).slice(0, -3)} />
+
                         {/* <YAxis yAxisId="right" orientation="right" /> */}
-                        <Tooltip />
+                        <Tooltip contentStyle={{marginLeft:-50,backgroundColor: '#333',color:theme.palette.primary.main}} />
+                        {/* <Tooltip content={<CustomTooltip />} /> */}
                         <Legend />
-                        <Area name="Cancer Funding in USD (billions)" type="monotone" dataKey="pv" fill="#413ea0" stroke="#413ea0" />
-                        <Bar name="Cancer New Cases (Millions)" dataKey="uv" barSize={5} fill={theme.palette.error.main} />
+                        <Bar yAxisId="left" name="Cancer New Cases (Millions)" dataKey="uv" barSize={5} stroke='#333' fill='#f7f8f8' />
+                        <Area yAxisId="right" name="Cancer Funding in USD (billions)" isAnimationActive={false} type="monotone" dataKey="pv" fill={theme.palette.primary.main} stroke={theme.palette.primary.main} />
                         {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
                     </ComposedChart>
                 </ResponsiveContainer>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <ResponsiveContainer width="100%" minHeight={500}>
+              <ResponsiveContainer width="100%" minHeight={500}>
                     <ComposedChart
                     // height={500}
                     data={dataDeathArr}
@@ -208,16 +278,64 @@ export const InteractiveGraph = (): JSX.Element => {
                     bottom: 20,
                     }}
                     >
-                        <CartesianGrid stroke="#f5f5f5" />
+                        <CartesianGrid stroke="#f5f5f5" vertical={false} />
                         <XAxis dataKey="name" scale="band" />
-                        <YAxis />
+                        <YAxis yAxisId="left" dataKey="dv" unit={'k'} orientation='left'/>
+                        <YAxis yAxisId="right" dataKey="uv" orientation='right' tickFormatter={value => currencyFormatter.format(value).slice(0, -3)} />
+
                         {/* <YAxis yAxisId="right" orientation="right" /> */}
-                        <Tooltip />
+                        <Tooltip content={<CustomTooltip />} />
                         <Legend />
-                        <Area name="Total Diabetes Deaths (100 Millions)" type="monotone" dataKey="dv" fill="#a1e300" stroke="#a1e300" />
-                        <Area name="Total Hypertension Deaths (100 Millions)" type="monotone" dataKey="hv" fill="#a0413e" stroke="#a0413e" />
-                        <Area name="Total Obesity Deaths (100 Millions)" type="monotone" dataKey="ov" fill="#413ea0" stroke="#413ea0" />
-                        <Bar name="US Healthcare Spending in USD (Billions)" dataKey="uv" barSize={5} fill={theme.palette.error.main} />
+                        <Bar yAxisId="left" name="Total Diabetes Deaths" dataKey="dv" barSize={5} stroke='#333' fill='#f7f8f8' />
+                        <Area yAxisId="right" name="US Healthcare Spending in USD (Billions)" isAnimationActive={false} type="linear" dataKey="uv" fill={theme.palette.error.main} stroke={theme.palette.error.main} />
+                        {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
+                    </ComposedChart>
+                </ResponsiveContainer>
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <ResponsiveContainer width="100%" minHeight={500}>
+                    <ComposedChart
+                    // height={500}
+                    data={dataDeathArr}
+                    margin={{
+                    top: 20,
+                    bottom: 20,
+                    }}
+                    >
+                        <CartesianGrid stroke="#f5f5f5" vertical={false} />
+                        <XAxis dataKey="name" scale="band" />
+                        <YAxis yAxisId="left" dataKey="hv" unit={'k'} orientation='left'/>
+                        <YAxis yAxisId="right" dataKey="uv" orientation='right' tickFormatter={value => currencyFormatter.format(value).slice(0, -3)} />
+
+                        {/* <YAxis yAxisId="right" orientation="right" /> */}
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                        <Bar yAxisId="left" name="Total Hypertension Deaths" dataKey="hv" barSize={5} stroke='#333' fill='#f7f8f8' />
+                        <Area yAxisId="right" name="US Healthcare Spending in USD (Billions)" type="linear" dataKey="uv" isAnimationActive={false} fill={theme.palette.error.main} stroke={theme.palette.error.main} />
+                        {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
+                    </ComposedChart>
+                </ResponsiveContainer>
+            </TabPanel>
+            <TabPanel value={value} index={3}>
+              <ResponsiveContainer width="100%" minHeight={500}>
+                    <ComposedChart
+                    // height={500}
+                    data={dataDeathArr}
+                    margin={{
+                    top: 20,
+                    bottom: 20,
+                    }}
+                    >
+                        <CartesianGrid stroke="#f5f5f5" vertical={false} />
+                        <XAxis dataKey="name" scale="band" />
+                        <YAxis yAxisId="left" dataKey="ov" unit={'k'} orientation='left'/>
+                        <YAxis yAxisId="right" dataKey="uv" orientation='right' tickFormatter={value => currencyFormatter.format(value).slice(0, -3)} />
+
+                        {/* <YAxis yAxisId="right" orientation="right" /> */}
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                        <Bar yAxisId="left" name="Total Obesity Deaths" dataKey="ov" barSize={5} stroke='#333' fill='#f7f8f8' />
+                        <Area yAxisId="right" name="US Healthcare Spending in USD (Billions)" type="linear" dataKey="uv" isAnimationActive={false} fill={theme.palette.error.main} stroke={theme.palette.error.main} />
                         {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
                     </ComposedChart>
                 </ResponsiveContainer>
@@ -225,3 +343,4 @@ export const InteractiveGraph = (): JSX.Element => {
         </Section>
     );
 };
+
