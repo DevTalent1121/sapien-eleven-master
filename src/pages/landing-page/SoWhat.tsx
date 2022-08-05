@@ -68,7 +68,7 @@ export const SoWhat = (): JSX.Element => {
                     trackHeight
                 >
                     <Section
-                        title={'So What?!'}
+                        title={'So What?'}
                         align={'left'}
                         style={{
                             borderRadius: '8px',

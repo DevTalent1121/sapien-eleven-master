@@ -10,6 +10,7 @@ import styled from '@mui/material/styles/styled';
 
 // components
 import Typography from '@mui/material/Typography';
+import { Link } from '@mui/material';
 
 const Paragraph = styled(
     Typography,
@@ -25,7 +26,8 @@ export const WhatNow = (): JSX.Element => {
 
     return (
         <Section
-            title={'What Now?'}
+            // title={'What Now?'}
+            title={"Don't Miss a Drop?"}
             align={'left'}
             fontColor={Colors.white[50]}
             dividerColor={Colors.white[50]}
@@ -34,9 +36,11 @@ export const WhatNow = (): JSX.Element => {
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Paragraph>
-                In the future, we will release more information on how to join the community and how you can take
-                advantage of some of the offerings we will provide. Follow us on twitter and turn on notifications for
-                the latest info on the project.
+            One by one we will make the world a healthier place. We can't do it alone thought. Please follow along on 
+            <Link color={Colors.white[50]} href='https://twitter.com/SapienEleventNFT'>
+             &nbsp;Twitter &nbsp;
+            </Link> and make sure to invite your friends and family.
+            {/* @SapienEleventNFT (link it to twitter) */}
             </Paragraph>
         </Section>
     );
