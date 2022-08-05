@@ -53,7 +53,8 @@ const cardData: SapienElevenCardData[] = [
         frontIcon: <School color={'primary'} />,
         backIcon: <School color={'primary'} style={centeredCardContentIconStyles} />,
         description:
-            "An exclusive platform to educate community members on wellness and the body's chemistry as well as talks and seminars featuring world-class health professionals",
+            // "An exclusive platform to educate community members on wellness and the body's chemistry as well as talks and seminars featuring world-class health professionals",
+            "An exclusive platform to educate community members on wellness and the body's chemistry as well as an all-in-one place for interactive and instructional experiences.",
     },
     // {
     //     title: 'Wellness Portal',
@@ -68,7 +69,8 @@ const cardData: SapienElevenCardData[] = [
         frontIcon: <TShirt height={24} fill={'rgb(202, 60, 61)'} />,
         backIcon: <TShirt height={80}  fill={'rgb(202, 60, 61)'} style={centeredCardContentIconStyles} />,
         description:
-            'An online storefront providing carefully curated and professionally formulated wellness products, supplements, apparel, and accessories',
+            // 'An online storefront providing carefully curated and professionally formulated wellness products, supplements, apparel, and accessories',
+            'An online storefront providing carefully designed and professionally formulated wellness product drops.',
     },
     {
         title: 'Cares System',
