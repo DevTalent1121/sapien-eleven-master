@@ -88,7 +88,15 @@ export const InteractiveGraph = (): JSX.Element => {
     },
     }));
   
-
+    const Paragraph = styled(
+      Typography,
+      {}
+    )(({ theme }) => ({
+      color: theme.palette.background.paper,
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(3)
+    }));
+    
     // Graph Data
     const dataCancerArr = [
         { name: '1990', uv: 1.04, pv: 1.64 },        
@@ -226,13 +234,17 @@ export const InteractiveGraph = (): JSX.Element => {
     });
     return  (
         <Section
-            title={'Graph'}
+            title={'State of Health'}
             align={'left'}
             fontColor={Colors.white[50]}
             dividerColor={Colors.white[50]}
             style={{ backgroundColor: Colors.black[900] }}
             sx={{ px: md ? 1 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
+            <Paragraph>
+                We live in the age of advanced technology. 
+                If medicine had truly advanced why aren't illness associated deaths steadily declining? Where's all the money going?
+            </Paragraph>          
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label="Disease chart" orientation={sm? 'vertical':'horizontal'}>
                 <Tab label="CANCERS" {...a11yProps(0)} />
