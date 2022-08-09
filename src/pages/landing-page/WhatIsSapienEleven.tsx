@@ -123,11 +123,11 @@ export const WhatIsSapienEleven = (): JSX.Element => {
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Paragraph>
-                Sapien Eleven is a NFT brand that aims to educate and improve the health and wellness of our community members trough prevention.
+                Sapien Eleven is a NFT wellness brand that aims to educate and improve the health and wellness of our community members through prevention.
             </Paragraph>
-            <Paragraph>
+            {/* <Paragraph>
                 We aim to provide a different approach than modern medicine&apos;s “diagnose and treat” method.
-            </Paragraph>
+            </Paragraph> */}
             <Grid container spacing={2} sx={{ mt: 1 }}>
                 {cardData.map((data) => (
                     <Grid key={data.title} item xs={12} sm={12} md={6} lg={4} xl={4}>

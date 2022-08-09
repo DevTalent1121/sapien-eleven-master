@@ -234,7 +234,7 @@ export const InteractiveGraph = (): JSX.Element => {
     });
     return  (
         <Section
-            title={'State of Health'}
+            title={'Chronic Disease Trends'}
             align={'left'}
             fontColor={Colors.white[50]}
             dividerColor={Colors.white[50]}

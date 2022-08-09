@@ -36,7 +36,7 @@ export const WhatNow = (): JSX.Element => {
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
         >
             <Paragraph>
-            One by one we will make the world a healthier place. We can't do it alone thought. Please follow along on 
+            One by one we will make the world a healthier place. We can't do it alone though. Please follow along on 
             <Link color={Colors.white[50]} href='https://twitter.com/SapienEleventNFT'>
              &nbsp;Twitter &nbsp;
             </Link> and make sure to invite your friends and family.
