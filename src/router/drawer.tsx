@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router';
 import Menu from '@mui/icons-material/Menu';
-import { Drawer, DrawerBody, DrawerHeader, DrawerNavGroup } from '@brightlayer-ui/react-components';
+import { Drawer, DrawerBody, DrawerHeader, DrawerNavGroup, DrawerNavItem } from '@brightlayer-ui/react-components';
 import { PAGES } from './routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
@@ -34,7 +34,8 @@ export const NavigationDrawer: React.FC = () => {
                     dispatch({ type: TOGGLE_DRAWER, payload: false });
                 },
             }}
-            variant={isMobile || isLandingPage ? 'temporary' : 'persistent'}
+            // variant={isMobile || isLandingPage ? 'temporary' : 'persistent'}
+            variant={'temporary'}
             activeItem={selected}
             width={300}
         >
@@ -48,8 +49,26 @@ export const NavigationDrawer: React.FC = () => {
             />
             <DrawerBody>
                 <DrawerNavGroup
+                hidePadding={false}
+                
                     items={PAGES.map((page) => {
                         const Icon = page.icon;
+                        let t_item = null;
+                        page.items? 
+                        t_item = page.items?.map((item)=>{
+                            return {
+                                title: item.title,
+                                itemID: `${page.route}/${item.route}` || '',
+                                // icon: <Icon />,
+                                onClick:
+                                    item.route !== undefined
+                                        ? (): void => {
+                                            handleNavigate(`${page.route}/${item.route}`);
+                                              if (isMobile) dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                          }
+                                        : undefined,
+                                        }
+                        }) : undefined
                         return {
                             title: page.title,
                             itemID: page.route || '',
@@ -61,9 +80,9 @@ export const NavigationDrawer: React.FC = () => {
                                           if (isMobile) dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                                       }
                                     : undefined,
+                            items: t_item
                         };
                     })}
-                    hidePadding
                 />
             </DrawerBody>
         </Drawer>

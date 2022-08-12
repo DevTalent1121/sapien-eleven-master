@@ -35,7 +35,7 @@ import { Link } from '@mui/material';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
-    // color?: 'primary' | 'secondary' | 'default';
+    backgroundColor?: 'primary' | 'secondary' | 'default';
     color?: 'primary' | 'secondary' | 'default';
     subtitle?: string;
     navigationIcon?: JSX.Element;
@@ -51,7 +51,7 @@ const MenuIconButton = styled(IconButton, {
     color:theme.palette.primary.main
 }));
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
-    const { title, color, subtitle, navigationIcon, ...other } = props;
+    const { title, color, subtitle, navigationIcon, backgroundColor, ...other } = props;
     const icon = navigationIcon ? navigationIcon : <Menu />;
     const theme = useTheme();
     const location = useLocation();
@@ -84,8 +84,8 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         fontWeight: 600,
         // margin: `${theme.spacing(3)} 0 0`,
         marginLeft:'auto',
-        borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.main,
+        borderColor: color,
+        color: color,
 
         [theme.breakpoints.down('md')]: {
             padding: 3,
@@ -96,23 +96,25 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     const StyledTwitterButton = styled(Button)(()=>({
         marginLeft:'auto',
-        color: theme.palette.background.paper,
+        color: color,
         [theme.breakpoints.down('md')]: {
             padding: 0,
         },
     }))
     const StyledRightBox = styled(Box)(() => ({
         marginLeft:'auto',
-        color: theme.palette.background.paper
+        color: color
     }));
     
     
     const getNavigationIcon = useCallback(
         () => (
             <>
+                {/* {((md && navigationIcon !== undefined && !isLandingPage) || isLandingPage) && ( */}
+                {/* {((md && navigationIcon !== undefined && !isLandingPage) || isLandingPage) && ( */}
                 {((md && navigationIcon !== undefined && !isLandingPage) || isLandingPage) && (
                     <MenuIconButton
-                        color={'inherit'}
+                        color={color}
                         onClick={(): void => {
                             dispatch({ type: TOGGLE_DRAWER, payload: isLandingPage ? true : !drawerOpen });
                         }}
@@ -135,7 +137,8 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 elevation={0}
                 style={{
                     zIndex: 1000,
-                    backgroundColor: theme.palette.background.paper,
+                    // backgroundColor: theme.palette.background.paper,
+                    backgroundColor: backgroundColor,
                     width: `calc(100% - ${sidebarOpen ? (sm ? 0 : 350) : 0}px)`,
                     right: sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
@@ -158,18 +161,18 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         // <Typography variant={'h6'} color={'inherit'} style={{ fontWeight: 600, lineHeight: 1 }}>
                         //     Sapien Eleven
                         // </Typography>
-                        <Link href='/`'>
+                        <Link href='/'>
                             <img src={LogoImage} alt={"Logo"} style={{ width: 160 }} />
                         </Link>
 
                     )}
 
                     <StyledRightBox>
-                        <StyledConnectButton variant={'outlined'} color={'inherit'} onClick={(): void => {}}>
+                        <StyledConnectButton variant={'outlined'} onClick={(): void => {}}>
                                 Connect
-                            </StyledConnectButton>
+                        </StyledConnectButton>
                             {/* {connectWalletButton()} */}
-                            <StyledTwitterButton
+                        <StyledTwitterButton
                             aria-label="twitter"
                             // target="_blank"
                             href={`https://twitter.com/SapienElevenNFT`}

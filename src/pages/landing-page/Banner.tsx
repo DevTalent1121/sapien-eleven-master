@@ -96,7 +96,7 @@ export const Banner: React.FC = (): JSX.Element => {
     const onScroll:any = () => {
             const offsetPos = document.body.scrollTop;
             setOffset(offsetPos);
-            console.log('--aa',offsetPos);
+            // console.log('--aa',offsetPos);
     };
 
     const BubbleContainer = styled(Box)(()=>({

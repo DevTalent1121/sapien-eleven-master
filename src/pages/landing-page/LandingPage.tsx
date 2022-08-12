@@ -17,13 +17,15 @@ import Menu from '@mui/icons-material/Menu';
 import { WhatNow } from './WhatNow';
 import { Team } from './Team';
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
+import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
 
 export const LandingPage: React.FC = (): JSX.Element => {
     usePageTitle('');
 
     return (
         <>
-            <SharedToolbar navigationIcon={<Menu />} />
+            {/* <SharedToolbar backgroundColor={'primary'} color={'default'} /> */}
+            <DefaultToolbar  title='Academy' color='primary' backgroundColor='default' />
 
             <Banner />
             <TransitionGradient
