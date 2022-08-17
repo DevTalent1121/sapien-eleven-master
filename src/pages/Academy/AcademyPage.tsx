@@ -10,6 +10,10 @@ import { useDrawer } from '../../contexts/drawerContextProvider';
 import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
 import { AcademyDescription } from './AcademyDescription';
 import AcademyTabs from './AcademyTabs';
+import { AcademyVideos } from './AcademyVideos';
+import { TransitionGradient } from '../../components';
+import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
+import {Colors } from '../../themes';
 
 //Additional for Drawer
 
@@ -20,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(2),
         },
+        root: {
+            backgroundColor:Colors.red[400],
+        }
     })
 );
 
@@ -57,12 +64,18 @@ export const AcademyPage = (): JSX.Element => {
             
             <DefaultToolbar  title='Academy' color='primary' backgroundColor='inherit' />
             
-            <AcademyDescription color='red' />
+            {/* <AcademyDescription color='red' /> */}
             
-            <Divider />
+            {/* <Divider /> */}
 
+            {/* <TransitionGradient gradientStart={'white'} gradientEnd={'#DA7777'} pinToBottom={false} /> */}
             <AcademyTabs />
-
+            {/* <TransitionGradient
+                offset={`-${TRANSITION_GRADIENT_HEIGHT}px`}
+                gradientStart={'#ffffff00'}
+                gradientEnd={'#fff'}
+            /> */}
+            
         </div>
     );
 };

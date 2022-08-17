@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const FitnessPage = (): JSX.Element => {
+export const NutritionPage = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const { setDrawerOpen } = useDrawer();
@@ -60,8 +60,7 @@ export const FitnessPage = (): JSX.Element => {
                 sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
             >                    
                 <Paragraph>
-                    Hate going to the gym? Don’t know what to do if you even get to the gym? Why not workout from home, at your own convenience?
-                </Paragraph>
+                    Understanding the nutrients that foods contain is important when setting out to achieve new wellness goals.  Sapien Eleven has done the hard work for you.                </Paragraph>
                 <AcademyVideos />
                 <AcademyVideos />
                 <AcademyVideos />

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const FitnessPage = (): JSX.Element => {
+export const RecipesPage = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const { setDrawerOpen } = useDrawer();
@@ -60,7 +60,7 @@ export const FitnessPage = (): JSX.Element => {
                 sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
             >                    
                 <Paragraph>
-                    Hate going to the gym? Don’t know what to do if you even get to the gym? Why not workout from home, at your own convenience?
+                    Finding recipes is easy. Finding step-by-step instructions and a detailed grocery list is not. 
                 </Paragraph>
                 <AcademyVideos />
                 <AcademyVideos />

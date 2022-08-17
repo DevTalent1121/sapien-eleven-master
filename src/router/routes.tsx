@@ -3,6 +3,11 @@ import Home from '@mui/icons-material/Home';
 import LooksOne from '@mui/icons-material/LooksOne';
 import LooksTwo from '@mui/icons-material/LooksTwo';
 import { FitnessPage } from '../pages/Academy/FitnessPage';
+import { NutritionPage } from '../pages/Academy/NutritionPage';
+import { DietsPage } from '../pages/Academy/DietsPage';
+import { RecipesPage } from '../pages/Academy/RecipesPage';
+import { SupplementsPage } from '../pages/Academy/SupplementsPage';
+import { YogaPage } from '../pages/Academy/YogaPage';
 // import { Engineering } from '@mui/icons-material';
 
 export const PAGES = [
@@ -25,21 +30,33 @@ export const PAGES = [
                 icon: LooksOne,
             },
             {
+                title: 'Yoga',
+                route: 'yoga',
+                component: YogaPage,
+                icon: LooksOne,
+            },
+            {
                 title: 'Nutrition',
                 route: 'nutrition',
-                component: AcademyPage,
+                component: NutritionPage,
                 icon: LooksOne,
             },
             {
                 title: 'Diets',
                 route: 'diets',
-                component: AcademyPage,
+                component: DietsPage,
+                icon: LooksOne,
+            },
+            {
+                title: 'Recipes',
+                route: 'recipes',
+                component: RecipesPage,
                 icon: LooksOne,
             },
             {
                 title: 'Supplements',
                 route: 'supplements',
-                component: AcademyPage,
+                component: SupplementsPage,
                 icon: LooksOne,
             },
         ]
