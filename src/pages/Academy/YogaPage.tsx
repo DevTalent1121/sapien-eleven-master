@@ -51,7 +51,7 @@ export const YogaPage = (): JSX.Element => {
             <DefaultToolbar  title='Fitness' color='primary' backgroundColor='inherit' />
             <Section
                 // title={'What Now?'}
-                title={"Wellness Academy"}
+                title={"Yoga"}
                 align={'left'}
                 fontColor={Colors.white[50]}
                 dividerColor={Colors.white[50]}
@@ -60,7 +60,7 @@ export const YogaPage = (): JSX.Element => {
                 sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
             >                    
                 <Paragraph>
-                    Brining the mental and physical disciplines together is important to achieve mind and body peace. Yoga has been proven to manage stress and anxiety, keeping one relaxed. 
+                    Bringing the mental and physical disciplines together is important to achieve mind and body peace. Yoga has been proven to manage stress and anxiety, keeping one relaxed. 
                 </Paragraph>
                 <AcademyVideos />
                 <AcademyVideos />

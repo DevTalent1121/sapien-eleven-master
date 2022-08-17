@@ -51,7 +51,7 @@ export const DietsPage = (): JSX.Element => {
             <DefaultToolbar  title='Fitness' color='primary' backgroundColor='inherit' />
             <Section
                 // title={'What Now?'}
-                title={"Wellness Academy"}
+                title={"Diets"}
                 align={'left'}
                 fontColor={Colors.white[50]}
                 dividerColor={Colors.white[50]}

@@ -9,7 +9,7 @@ import * as Colors from '../../themes/colors';
 import { ParallaxContainer, Section, TransitionGradient } from '../../components';
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 import SAD from '../../assets/images/shutterstock_1543784279.jpg';
-import { Grid, styled, Theme } from '@mui/material';
+import { Divider, Grid, styled, Theme } from '@mui/material';
 import { AcademyVideos } from './AcademyVideos';
 
 interface TabPanelProps {
@@ -55,11 +55,21 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
+  const introTexts: String[] =[
+    "Hate going to the gym? Don’t know what to do if you even get to the gym? Why not workout from home, at your own convenience?",
+    "Bringing the mental and physical disciplines together is important to achieve mind and body peace. Yoga has been proven to manage stress and anxiety, keeping one relaxed. ",
+    "Understanding the nutrients that foods contain is important when setting out to achieve new wellness goals.  Sapien Eleven has done the hard work for you.",
+    "Keeping up with the diet trends can be hard work. Sapien Eleven has outlined their favorites here.",
+    "Finding recipes is easy. Finding step-by-step instructions and a detailed grocery list is not. ",
+    "Consuming a diet packed with nutrient dense foods can be tough. Supplementing with properly sourced bioavailable supplements can play a vital role in improving health and preventing disease."
+  ]; 
+
   export default function AcademyTabs() {
     const theme = useTheme();
     const md = useMediaQuery(theme.breakpoints.down('md'));
 
     const [value, setValue] = React.useState(0);
+    const [introText, setIntroText] = React.useState(introTexts[0]);
   
     const [stateOfHealthContentHeight, setStateOfHealthContentHeight] = React.useState(0);
 
@@ -69,6 +79,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
+      setIntroText(introTexts[newValue]);
     };
 
     const Paragraph = styled(
@@ -77,7 +88,8 @@ const useStyles = makeStyles((theme: Theme) =>
     )(() => ({
       color: theme.palette.background.paper,
       marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(3)
+      marginBottom: theme.spacing(3),
+      height:30
     }));
     
     const classes = useStyles();
@@ -113,7 +125,7 @@ const useStyles = makeStyles((theme: Theme) =>
                         textColor={'primary'}
                         onChange={handleChange}
                         aria-label="Academy Categories"
-                        sx={{ borderRight: 1, borderColor: 'divider'}}
+                        sx={{ paddingTop:10, borderRight: 1, borderColor: 'divider'}}
                     >
                         <Tab classes={{selected: classes.selected}} label="Fitness" {...a11yProps(0)} />
                         <Tab label="Yoga" {...a11yProps(1)} />
@@ -132,26 +144,30 @@ const useStyles = makeStyles((theme: Theme) =>
                     xl={10}
                     color={'white'}
                 >
+                    <Paragraph>
+                      {introText}          
+                    </Paragraph>
+                    <Divider />        
     
                     <TabPanel value={value} index={0}>
-                    <AcademyVideos />
-                    <AcademyVideos />
-                    <AcademyVideos />
+                      <AcademyVideos />
+                      <AcademyVideos />
+                      <AcademyVideos />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Yoga
+                      <AcademyVideos />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        Nutrition
-                    </TabPanel>
+                        <AcademyVideos />
+                  </TabPanel>
                     <TabPanel value={value} index={3}>
-                        Diets
+                      <AcademyVideos />
                     </TabPanel>
                     <TabPanel value={value} index={4}>
-                        Recipes
+                      <AcademyVideos />
                     </TabPanel>
                     <TabPanel value={value} index={5}>
-                        Supplements
+                      <AcademyVideos />
                     </TabPanel>
                 </Grid>
             </Grid>

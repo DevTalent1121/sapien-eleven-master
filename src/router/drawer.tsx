@@ -64,7 +64,7 @@ export const NavigationDrawer: React.FC = () => {
                                     item.route !== undefined
                                         ? (): void => {
                                             handleNavigate(`${page.route}/${item.route}`);
-                                              if (isMobile) dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                              /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                                           }
                                         : undefined,
                                         }
@@ -77,7 +77,7 @@ export const NavigationDrawer: React.FC = () => {
                                 page.route !== undefined
                                     ? (): void => {
                                           handleNavigate(page.route);
-                                          if (isMobile) dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                          /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                                       }
                                     : undefined,
                             items: t_item
