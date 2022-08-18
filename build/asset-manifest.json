@@ -1,8 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.a54ec907.css",
-    "main.js": "/static/js/main.c79b7fa0.js",
+    "main.js": "/static/js/main.60cacead.js",
     "static/js/787.502b87ef.chunk.js": "/static/js/787.502b87ef.chunk.js",
+    "static/media/SapienElevenKitchen.png": "/static/media/SapienElevenKitchen.ad8ce793e5a4887f3f34.png",
+    "static/media/SapienElevenGym.png": "/static/media/SapienElevenGym.a5a2ad7ceebda0657428.png",
     "static/media/jeremy_morris_web3.png": "/static/media/jeremy_morris_web3.3f8694cd96bfcbfb0c07.png",
     "static/media/brett_prothman_web3.png": "/static/media/brett_prothman_web3.0c650c12449c0f6e4471.png",
     "static/media/GraphicBackgroundText.png": "/static/media/GraphicBackgroundText.4d4007212633a7d4c3ed.png",
@@ -107,11 +109,11 @@
     "static/media/open-sans-greek-ext-700-normal.woff2": "/static/media/open-sans-greek-ext-700-normal.6ec764fe61947b88ec49.woff2",
     "index.html": "/index.html",
     "main.a54ec907.css.map": "/static/css/main.a54ec907.css.map",
-    "main.c79b7fa0.js.map": "/static/js/main.c79b7fa0.js.map",
+    "main.60cacead.js.map": "/static/js/main.60cacead.js.map",
     "787.502b87ef.chunk.js.map": "/static/js/787.502b87ef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a54ec907.css",
-    "static/js/main.c79b7fa0.js"
+    "static/js/main.60cacead.js"
   ]
 }

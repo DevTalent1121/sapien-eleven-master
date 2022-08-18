@@ -8,6 +8,7 @@ import { DietsPage } from '../pages/Academy/DietsPage';
 import { RecipesPage } from '../pages/Academy/RecipesPage';
 import { SupplementsPage } from '../pages/Academy/SupplementsPage';
 import { YogaPage } from '../pages/Academy/YogaPage';
+import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 // import { Engineering } from '@mui/icons-material';
 
 export const PAGES = [
@@ -63,8 +64,9 @@ export const PAGES = [
     },
     // {
     //     title: 'WL Game',
-    //     route: 'page-two',
-    //     component: PageTwo,
+    //     route: 'thekitchen',
+    //     component: ThekitchenPage,
+    //     private: true,
     //     icon: LooksTwo,
     // },
 ];
