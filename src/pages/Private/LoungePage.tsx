@@ -36,7 +36,7 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     // borderBottom:  `5px solid ${theme.palette.primary.main}`,
     backgroundColor: 'rgb(210, 89, 90)',
     backgroundSize: 'contain',
-    height: '65vh',
+    height: '63vh',
     width: '90%',
     margin: 'auto',
     marginTop: '3vh',
@@ -49,7 +49,7 @@ const BannerBackgroundBox = styled(Box)(({ theme }) => ({
     // },
     [theme.breakpoints.down('md')]: {
         // paddingTop: theme.spacing(19),
-        height: '50vh'
+        height: '35vh'
     },
 }));
 
@@ -61,8 +61,11 @@ export const LoungePage: React.FC = (): JSX.Element => {
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <Box>
+        <Box sx={{backgroundColor:'rgb(210, 89, 90)'}}>
             <DefaultToolbar  title='Academy' color='primary' backgroundColor='inherit' />
+            <StyledTypography variant={sm ? 'subtitle1' : md ? 'h6' : 'h6'} sx={{fontFamily:'besan'}}>
+            Expressed in hundredths a whole of a part.
+            </StyledTypography>
             <BannerBackgroundBox>
                 <StyledTypography variant={sm ? 'h5' : md ? 'h4' : 'h3'}>
                     {/* <Box component={'span'}>Sapien Eleven</Box> */}

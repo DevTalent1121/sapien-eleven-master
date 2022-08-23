@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a54ec907.css",
-    "main.js": "/static/js/main.60cacead.js",
+    "main.js": "/static/js/main.037a374c.js",
     "static/js/787.502b87ef.chunk.js": "/static/js/787.502b87ef.chunk.js",
     "static/media/SapienElevenKitchen.png": "/static/media/SapienElevenKitchen.ad8ce793e5a4887f3f34.png",
     "static/media/SapienElevenGym.png": "/static/media/SapienElevenGym.a5a2ad7ceebda0657428.png",
@@ -13,6 +13,7 @@
     "static/media/brett_prothman_web2.png": "/static/media/brett_prothman_web2.ecdf2ef5d4cc87350ca1.png",
     "static/media/nathan_kocan_web2.png": "/static/media/nathan_kocan_web2.8dea6955a4cf8e9a4e35.png",
     "static/media/NewBubbles.png": "/static/media/NewBubbles.e2c46929b8188de5a459.png",
+    "static/media/lounge.jpg": "/static/media/lounge.98e74833499fed52eb40.jpg",
     "static/media/open-sans-all-300-italic.woff": "/static/media/open-sans-all-300-italic.d0590b33ff1224821ebb.woff",
     "static/media/open-sans-all-600-italic.woff": "/static/media/open-sans-all-600-italic.4dbe16f8b6f6294f8683.woff",
     "static/media/open-sans-all-400-italic.woff": "/static/media/open-sans-all-400-italic.cda340c9d3abaadaf00b.woff",
@@ -109,11 +110,11 @@
     "static/media/open-sans-greek-ext-700-normal.woff2": "/static/media/open-sans-greek-ext-700-normal.6ec764fe61947b88ec49.woff2",
     "index.html": "/index.html",
     "main.a54ec907.css.map": "/static/css/main.a54ec907.css.map",
-    "main.60cacead.js.map": "/static/js/main.60cacead.js.map",
+    "main.037a374c.js.map": "/static/js/main.037a374c.js.map",
     "787.502b87ef.chunk.js.map": "/static/js/787.502b87ef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a54ec907.css",
-    "static/js/main.60cacead.js"
+    "static/js/main.037a374c.js"
   ]
 }
