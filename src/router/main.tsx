@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 import { GymtimePage } from '../pages/Private/GymtimePage';
+import { LoungePage } from '../pages/Private/LoungePage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
+import { WLMintPage } from '../pages/Private/WLmint';
 import { PAGES } from './routes';
 
 export const MainRouter = (
@@ -26,8 +28,10 @@ export const MainRouter = (
                 return <Route key={`route_${page.route}`} path={`${page.route}`} element={<RouteElement />} />;
             }
         })}
-        <Route key={`route_thekitchen`} path={`thekitchen`} element={<ThekitchenPage />} />;
-        <Route key={`route_gymtime`} path={`gymtime`} element={<GymtimePage />} />;
+        <Route key={`route_thekitchen`} path={`kithen11`} element={<ThekitchenPage />} />;
+        <Route key={`route_gymtime`} path={`sapiengym`} element={<GymtimePage />} />;
+        <Route key={`route_lounge`} path={`thelounge`} element={<LoungePage />} />;
+        <Route key={`route_wlmint`} path={`wlmint`} element={<WLMintPage />} />;
         <Route path={'*'} element={<Navigate to={'/'} />} />
     </>
 );

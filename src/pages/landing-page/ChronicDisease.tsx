@@ -15,6 +15,8 @@ import Typography from '@mui/material/Typography';
 // icons
 import CircularProgress from '@mui/material/CircularProgress';
 import ShowChart from '@mui/icons-material/ShowChart';
+import Link from '@mui/material/Link';
+import styled from '@mui/styles/styled';
 
 const chronicIllnessGridItemStyles = {
     alignItems: 'center',
@@ -22,6 +24,13 @@ const chronicIllnessGridItemStyles = {
     display: 'flex',
     flexDirection: 'column',
 };
+
+const LinkNoEffect = styled(Link)(({theme})=>({
+
+    varient:'inherit',
+    cursor: 'default',
+    textDecoration: 'none',
+}));
 
 export const ChronicDisease = (): JSX.Element => {
     const theme = useTheme();
@@ -52,7 +61,9 @@ export const ChronicDisease = (): JSX.Element => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography variant="h4" component="div" color={Colors.white[50]}>{`71%`}</Typography>
+                            <Typography variant="h4" component="div" color={Colors.white[50]}>
+                                <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect>
+                                </Typography>
                         </Box>
                     </Box>
                     <Typography
@@ -60,7 +71,7 @@ export const ChronicDisease = (): JSX.Element => {
                         color={theme.palette.error.main}
                         sx={{ mt: 5, width: '80%', textAlign: 'center' }}
                     >
-                        71% OF ALL ADULT DEATHS ARE CAUSED BY CHRONIC DISEASE
+                    <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect> OF ALL ADULT DEATHS ARE CAUSED BY CHRONIC DISEASE
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} sx={chronicIllnessGridItemStyles}>

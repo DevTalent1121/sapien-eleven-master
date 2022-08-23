@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.background.paper,
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(3),
-      height:30
+      // height:30
     }));
     
     const classes = useStyles();

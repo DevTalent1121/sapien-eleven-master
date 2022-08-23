@@ -20,28 +20,31 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     color: theme.palette.background.paper,
     fontFamily: 'besan',
     textAlign: 'center',
+    padding: '10px',
+    paddingTop:'5vh'
 }));
 
 
 const BannerBackgroundBox = styled(Box)(({ theme }) => ({
-    width: '100%',
     // padding: `${theme.spacing(20)} ${theme.spacing(4)}`,
     color: theme.palette.primary.contrastText,
     background: `url(${BackgroundImage})`,
     // borderBottom:  `5px solid ${theme.palette.primary.main}`,
     backgroundSize: 'contain',
-    height: '90vh',
+    height: '75vh',
+    width: '90%',
+    margin: 'auto',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center bottom',
+    backgroundPosition: 'center center',
     overflow: 'hidden',
-    [theme.breakpoints.down('lg')]: {
-        // paddingTop: theme.spacing(19),
-        height: '60vh'
-    },
-    [theme.breakpoints.down('md')]: {
-        // paddingTop: theme.spacing(19),
-        height: '30vh'
-    },
+    // [theme.breakpoints.down('lg')]: {
+    //     // paddingTop: theme.spacing(19),
+    //     height: '60vh'
+    // },
+    // [theme.breakpoints.down('md')]: {
+    //     // paddingTop: theme.spacing(19),
+    //     height: '75vh'
+    // },
 }));
 
 
@@ -53,9 +56,13 @@ export const GymtimePage: React.FC = (): JSX.Element => {
     return (
         <Box>
             <DefaultToolbar  title='Academy' color='primary' backgroundColor='inherit' />
+            <StyledTypography variant={sm ? 'h6' : md ? 'h5' : 'h4'}>
+            The one before The Captains number.
+            </StyledTypography>
             <BannerBackgroundBox>
                 <StyledTypography variant={sm ? 'h5' : md ? 'h4' : 'h3'}>
                     {/* <Box component={'span'}>Sapien Eleven</Box> */}
+                    {/* <PacmanPage /> */}
                 </StyledTypography>
             </BannerBackgroundBox>
         </Box>

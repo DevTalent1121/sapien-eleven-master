@@ -26,6 +26,11 @@ import TShirt from '../../assets/svg/Tshirt';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 import { CardActionArea, CardMedia } from '@mui/material';
 
+// import { Player } from 'video-react';
+
+
+// import Academy_Sample_video from "../../assets/videos/academy_sample.mp4"
+
 type SapienElevenCardData = {
     title: string;
     frontIcon: JSX.Element & React.ReactNode;
@@ -114,17 +119,34 @@ const cardTitleStyles = {
 export const AcademyVideos = (): JSX.Element => {
     const theme = useTheme();
     const md = useMediaQuery(theme.breakpoints.down('md'));
-
+    const videoPlayer =
+    "https://res.cloudinary.com/ds5ayigjw/video/upload/v1617926559/my-website/2021-04-05_23-07-04_jklscb.mp4";
     return (
         <Grid container spacing={2} sx={{ mt: 1 }}>
             {cardData.map((data) => (
                 <Grid key={data.title} item xs={12} sm={12} md={6} lg={4} xl={4}>
                     <CardActionArea >
-                        <CardHeader title='Video Title' sx={{color:'white'}} />
-                        <CardMedia
-                            component="video"
-                            src="https://www.youtube.com/watch?v=4KxHcbQ8GYQ"
-                        />
+                        <CardHeader title='Kale and Chicken salad ' sx={{color:'white'}} />
+                        {/* <CardMedia
+                            width={300}
+                            height={400}
+                            component="video" 
+                            autoPlay 
+                            // controls
+                            src={videoPlayer}
+                        /> */}
+                            <video controls width="100%">
+                                {/* <source src="/video-example.webm" type="video/webm" /> */}
+                                <source src={videoPlayer} type="video/mp4"
+                                />
+                                Sorry, your browser doesn't support videos.
+                            </video>
+                        {/* <Player
+                        playsInline
+                        poster="/assets/poster.png"
+                        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                        /> */}
+
                     </CardActionArea>             
                 </Grid>
             ))}
