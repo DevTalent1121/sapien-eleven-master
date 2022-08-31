@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
+import { PacmanPage } from './Pac-man';
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
     color: theme.palette.background.paper,
@@ -32,7 +33,8 @@ export const WLMintPage: React.FC = (): JSX.Element => {
         <Box>
             <DefaultToolbar  title='Academy' color='primary' backgroundColor='inherit' />
             <StyledTypography variant={sm ? 'subtitle1' : md ? 'h6' : 'h5'}>
-                WLMint Page
+                Free Whitelist NFT Mint
+                <PacmanPage />
             </StyledTypography> 
         </Box>
     );
