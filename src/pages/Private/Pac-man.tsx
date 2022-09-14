@@ -25,16 +25,18 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     textAlign: 'center',
 }));
 
-const StyledMintButton = styled(Button)(({theme}) =>({
+const StyledMintButton = styled(Button)(() =>({
     minWidth: 150,
     fontWeight: 600,
-    margin: `${theme.spacing(3)} 0 0`,
+    // margin: `${theme.spacing(3)} 0 0`,
     marginLeft:'auto',
     borderColor: 'white',
     color: 'white',
     minHeight:40,
-
-    // [theme.breakpoints.down('md')]: {
+    "&:hover": {
+        background: 'rgba(255,200,200,0.1)',
+        borderColor: 'white'
+      },    // [theme.breakpoints.down('md')]: {
     //     padding: 3,
     //     minHeight: 20,
     //     minWidth: 60,
@@ -121,7 +123,7 @@ class GhostClass {
 
     getNewCoord(dir:number, current: PointXY) { 
         
-        var speed  = this.isVunerable() ? 1 : this.isHidden() ? 4 : 2,
+        var speed  = this.isVunerable() ? 1 : this.isHidden() ? 4 : 2.3,
             xSpeed = (dir === LEFT && -speed || dir === RIGHT && speed || 0),
             ySpeed = (dir === DOWN && speed || dir === UP && -speed || 0);
         // console.log("x-speed: " + xSpeed + ", y-speed: " + ySpeed);
@@ -179,6 +181,7 @@ class GhostClass {
 
     makeEatable() {
         this.direction = this.oppositeDirection(this.direction);
+        // console.log("Eatable: " + this.eatable + " , Tick: " + this.game.getTick());
         this.eatable = this.game.getTick();
     };
 
@@ -1208,7 +1211,7 @@ class PACMAN extends React.Component {
             }
         } else if (this.status === COUNTDOWN) {
             
-            diff = 5 + Math.floor((this.timerStart - this.tick) / PACMAN_FPS);
+            diff = 4 + Math.floor((this.timerStart - this.tick) / PACMAN_FPS);
             
             if (diff === 0) {
                 this.user.map.draw(this.ctx);

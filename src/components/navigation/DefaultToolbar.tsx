@@ -60,6 +60,9 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
         minWidth: 32,
         maxHeight: 50,
         paddingLeft: 12,
+        // margin: 0,
+        marginLeft: 5,
+        borderRadius: '50%',
         [theme.breakpoints.down('md')]: {
             paddingLeft: 8,
         },
@@ -116,7 +119,7 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
                         {/* {props.title} */}
                     </Typography>
                     </Box>
-                    <Box sx={{display: 'flex'}}>
+                    <Box sx={{display: 'flex', marginRight:'30px'}}>
                         <StyledConnectButton variant={'outlined'} onClick={(): void => {}}>
                                 Connect
                         </StyledConnectButton>

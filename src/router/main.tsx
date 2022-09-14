@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 import { GymtimePage } from '../pages/Private/GymtimePage';
 import { LoungePage } from '../pages/Private/LoungePage';
+import { ShopPage } from '../pages/Private/ShopPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 import { WLMintPage } from '../pages/Private/WLmint';
 import { PAGES } from './routes';
@@ -32,6 +33,7 @@ export const MainRouter = (
         <Route key={`route_gymtime`} path={`sapiengym`} element={<GymtimePage />} />;
         <Route key={`route_lounge`} path={`thelounge`} element={<LoungePage />} />;
         <Route key={`route_wlmint`} path={`wlmint`} element={<WLMintPage />} />;
+        <Route key={`route_shop`} path={`shop`} element={<ShopPage />} />;
         <Route path={'*'} element={<Navigate to={'/'} />} />
     </>
 );
