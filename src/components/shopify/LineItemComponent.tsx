@@ -12,12 +12,13 @@ interface ILineItemProps {
 
 export default function LineItemComponent(props: ILineItemProps) {
   const { lineItem } = props;
+
   return (
     <li className="Line-item">
       <div className="Line-item__img">
-        {lineItem.image ? (
+        {lineItem.attrs.variant.image ? (
           <img
-            src={lineItem.image.src}
+            src={lineItem.attrs.variant.image.src}
             alt={`${lineItem.title} product shot`}
           />
         ) : null}
@@ -46,7 +47,8 @@ export default function LineItemComponent(props: ILineItemProps) {
             </button>
           </div>
           <span className="Line-item__price">
-            $ {(lineItem.quantity * parseFloat(lineItem.price)).toFixed(2)}
+            {/* $ {(lineItem.quantity * parseFloat(lineItem.price)).toFixed(2)} */}
+            $ {lineItem.attrs.variant.price}
           </span>
           <button
             className="Line-item__remove"

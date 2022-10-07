@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { CHANGE_PAGE_TITLE } from '../redux/actions';
+import { CHANGE_PAGE_TITLE } from '../store/menu/actions';
 
 export const usePageTitle = (title: string): void => {
     const dispatch = useDispatch();

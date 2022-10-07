@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 import { GymtimePage } from '../pages/Private/GymtimePage';
 import { LoungePage } from '../pages/Private/LoungePage';
-import ProductsPage from '../pages/Private/ProductPage';
+import {ProductsPage} from '../pages/Private/ProductPage';
 import { ShopPage } from '../pages/Private/ShopPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 import { WLMintPage } from '../pages/Private/WLmint';

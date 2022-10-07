@@ -7,8 +7,10 @@ import { useSelector } from "react-redux";
 export default function Cart() {
     const shopify = useSelector((state: RootState) => state.shopify);
     const cartUI = useSelector((state: RootState) => state.cartUI);
-    const { cart } = shopify;
+    const { cart } = useSelector((state: RootState) => state.shopify)
+    // const { cart } = shopify;
     const { isCartOpen } = cartUI;
+
     return (
         <div className={`Cart ${isCartOpen ? "Cart--open" : ""}`}>
             <header className="Cart__header">
@@ -68,7 +70,7 @@ export default function Cart() {
                 <button
                     className="Cart__checkout button"
                     onClick={() => {
-                        window.open(cart?.checkoutUrl);
+                        window.open(cart?.webUrl);
                     }}
                 >
                     Checkout

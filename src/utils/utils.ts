@@ -10,6 +10,10 @@ import {
 export async function bootstrapShopify(): Promise<void> {
     try {
         // client
+        // const client = Client.buildClient({
+        //     storefrontAccessToken: "9547fd62fddd7362c2b140dead2e0e68",
+        //     domain: "sapieneleven.myshopify.com",
+        // });
         const client = Client.buildClient({
             storefrontAccessToken: "9547fd62fddd7362c2b140dead2e0e68",
             domain: "sapieneleven.myshopify.com",
@@ -27,6 +31,7 @@ export async function bootstrapShopify(): Promise<void> {
 
         // cart
         const cart = await client.checkout.create();
+        cart.lineItemCount = 0;
         store.dispatch({ type: CHECKOUT_CREATED, payload: { cart } });
 
         // shop

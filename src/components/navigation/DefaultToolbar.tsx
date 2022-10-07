@@ -10,9 +10,9 @@ import { useDrawer } from '../../contexts/drawerContextProvider';
 
 
 /// Changed to use dispatch
-import { TOGGLE_DRAWER } from '../../redux/actions';
+import { TOGGLE_DRAWER } from '../../store/menu/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../../redux/reducers';
+import { RootState } from "../../store";
 import LogoImage from '../../assets/images/RedLogo500.png';
 import { styled } from '@mui/material/styles';
 import { TwitterIconSVG as TwitterIcon } from '../../assets/images/twitter_icon';
@@ -79,7 +79,8 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     const md = useMediaQuery(theme.breakpoints.up('md'));
 
     const dispatch = useDispatch();
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    // const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const drawerOpen = useSelector((state: RootState) => state.menu.drawerOpen);
 
        return (
         <>

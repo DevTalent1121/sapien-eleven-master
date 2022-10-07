@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { AppBar, AppBarProps, Spacer } from '@brightlayer-ui/react-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { TOGGLE_DRAWER } from '../../redux/actions';
-import { AppState } from '../../redux/reducers';
+import { TOGGLE_DRAWER } from '../../store/menu/actions';
+import { AppState } from '../../store/menu/reducers';
 import { PADDING } from '../../shared';
 
 // @mui imports

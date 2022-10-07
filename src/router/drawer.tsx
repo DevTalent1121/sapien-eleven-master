@@ -5,11 +5,12 @@ import Menu from '@mui/icons-material/Menu';
 import { Drawer, DrawerBody, DrawerHeader, DrawerNavGroup, DrawerNavItem } from '@brightlayer-ui/react-components';
 import { PAGES } from './routes';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
-import { TOGGLE_DRAWER } from '../redux/actions';
+import { RootState } from "../store";
+
+import { TOGGLE_DRAWER } from '../store/menu/actions';
 
 export const NavigationDrawer: React.FC = () => {
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const drawerOpen = useSelector((state: RootState) => state.menu.drawerOpen);
     const dispatch = useDispatch();
     const theme = useTheme();
     const navigate = useNavigate();

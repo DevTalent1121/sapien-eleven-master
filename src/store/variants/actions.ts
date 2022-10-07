@@ -7,6 +7,7 @@ import {
 export function handleQuantityChange(
     event: React.ChangeEvent<HTMLInputElement>
 ) {
+    console.log("quanity");
     store.dispatch({
         type: SET_SELECTED_VARIANT_QUANTITY,
         payload: {
