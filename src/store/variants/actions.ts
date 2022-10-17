@@ -23,12 +23,16 @@ export function handleOptionChange(
     const { shopify } = store.getState();
     const { client } = shopify;
     let selectedOptions: any;
+    console.log("selected");
     product.options.forEach((selector) => {
+        selectedOptions = new Array();
         selectedOptions[selector.name] = selector.values[0].value;
     });
 
     const target = event.target;
     selectedOptions[target.name] = target.value;
+
+    console.log(client?.product.variantForOptions);
 
     if (client) {
         const selectedVariant = client.product.variantForOptions(

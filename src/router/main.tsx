@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 import { GymtimePage } from '../pages/Private/GymtimePage';
 import { LoungePage } from '../pages/Private/LoungePage';
-import {ProductsPage} from '../pages/Private/ProductPage';
+import {MarketplacePage} from '../pages/Private/MarketplacePage';
 import { ShopPage } from '../pages/Private/ShopPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 import { WLMintPage } from '../pages/Private/WLmint';
@@ -35,7 +35,7 @@ export const MainRouter = (
         <Route key={`route_lounge`} path={`thelounge`} element={<LoungePage />} />;
         <Route key={`route_wlmint`} path={`wlmint`} element={<WLMintPage />} />;
         <Route key={`route_shop`} path={`shop`} element={<ShopPage />} />;
-        <Route key={`route_products`} path={`products`} element={<ProductsPage />} />;
+        <Route key={`route_marketplace`} path={`marketplace`} element={<MarketplacePage />} />;
         <Route path={'*'} element={<Navigate to={'/'} />} />
     </>
 );

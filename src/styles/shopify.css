@@ -83,7 +83,7 @@ h2 {
   background-color: rgb(210, 89, 90);
   color: white;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px 17px;
   cursor: pointer;
   transition: 0.5s;
@@ -208,6 +208,7 @@ h2 {
 
 .Cart__checkout {
   margin-top: 20px;
+  font-family: "besan";
   display: block;
   width: 100%;
   text-align: center;
@@ -386,13 +387,15 @@ h2 {
 
 .Product__option {
   display: block;
-  width: 100%;
+  width: 60%;
   margin-bottom: 10px;
+  height:30px;
 }
 
 .Product__quantity {
   display: block;
   width: 15%;
+  height: 30px;
   margin-bottom: 10px;
 }
 
@@ -477,13 +480,13 @@ h2 {
   color: #c23628;
 }
 
-.MuiDivider-root{
+/* .MuiDivider-root{
   margin: 5px 0 5px 0;
   padding: 5px 0 5px 0;
   display: block;
-}
+} */
 
 .variantLabel{
   display: block;
-  width:50%;
+  width:30%;
 }

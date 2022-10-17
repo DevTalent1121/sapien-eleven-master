@@ -2,10 +2,11 @@ import { Box, Typography } from "@mui/material";
 import styled from "@mui/styles/styled";
 import * as React from "react";
 import { Option, OptionValue } from "shopify-buy";
-import { handleOptionChange } from "../../store/variants/actions";
+// import { handleOptionChange } from "../../store/variants/actions";
 
 interface IVariantSelectorProps {
-  option: Option
+  option: Option;
+  handleOptionChange: any;
 }
 
 const VariantContainer = styled(Box)(()=>({
@@ -19,7 +20,7 @@ const VariantContainer = styled(Box)(()=>({
 }))
 
 export default function VariantSelector(props: IVariantSelectorProps) {
-  const { option } = props;
+  const { option, handleOptionChange} = props;
   return (
     <VariantContainer>
       <Typography className="variantLabel">{option.name}: </Typography>
@@ -27,7 +28,7 @@ export default function VariantSelector(props: IVariantSelectorProps) {
         className="Product__option"
         name={option.name}
         key={option.name}
-        onChange={(event) => handleOptionChange}
+        onChange={handleOptionChange}
       >
         {option.values.map((value: OptionValue) => {
           return (

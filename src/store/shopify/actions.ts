@@ -12,12 +12,9 @@ export function addVariantToCart(variantId: string | number, quantity: number) {
     if (cart && client) {
         const checkoutId = cart.id;
         // client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-
+        console.log(client.product.variantForOptions);
         client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
             // Do something with the updated checkout
-            if(!cart.lineItemCount) {
-                cart.lineItemCount = 0;
-            }
             checkout.lineItemCount = cart.lineItemCount + quantity;
 
             console.log(checkout.lineItemCount);
