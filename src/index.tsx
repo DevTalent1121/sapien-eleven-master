@@ -10,6 +10,8 @@ import './themes/open-sans';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import "./styles/shopify.css";
+
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
