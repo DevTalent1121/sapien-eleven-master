@@ -48,24 +48,24 @@ const teamCardData: TeamCardData[] = [
             "A licensed Optometrist with a passion for helping people, and health and fitness. He's been in crypto since 2017 and in NFTs since August 2021. He is passionate about web3 and sees this as the perfect opportunity to change healthcare and help others build and sustain a healthy future.",
         twitterHandle: 'WonderBeast_',
     },
-    {
-        name: 'Brett Prothman',
-        role: 'Founder',
-        web2Avatar: BrettProthmanWeb2,
-        web3Avatar: BrettProthmanWeb3,
-        description:
-            "A forward thinking entrepreneur with eight years of business development success.  Beginning his crypto adventure in 2017 and transitioning into NFTs in July 2021 he's experienced the highs and the lows and has witnessed what has worked and what hasn't. An adventure junkie at heart, he's always looking for the next thrill.",
-        twitterHandle: 'NeoTokyo541',
-    },
-    {
-        name: 'Nate Kocan',
-        role: 'Founder',
-        web2Avatar: NathanKocanWeb2,
-        web3Avatar: NathanKocanWeb3,
-        description:
-            'A passionate entrepreneurial minded senior IT security and compliance auditor with extensive business growth and development experience and expertise ranging from an athletic clothing line to landscaping. Nate also began his crypto journey in 2017 when he read his first blockchain book. He has since continued to learn everything there is to know about the space.',
-        twitterHandle: 'NFTswithNate',
-    },
+    // {
+    //     name: 'Brett Prothman',
+    //     role: 'Founder',
+    //     web2Avatar: BrettProthmanWeb2,
+    //     web3Avatar: BrettProthmanWeb3,
+    //     description:
+    //         "A forward thinking entrepreneur with eight years of business development success.  Beginning his crypto adventure in 2017 and transitioning into NFTs in July 2021 he's experienced the highs and the lows and has witnessed what has worked and what hasn't. An adventure junkie at heart, he's always looking for the next thrill.",
+    //     twitterHandle: 'NeoTokyo541',
+    // },
+    // {
+    //     name: 'Nate Kocan',
+    //     role: 'Founder',
+    //     web2Avatar: NathanKocanWeb2,
+    //     web3Avatar: NathanKocanWeb3,
+    //     description:
+    //         'A passionate entrepreneurial minded senior IT security and compliance auditor with extensive business growth and development experience and expertise ranging from an athletic clothing line to landscaping. Nate also began his crypto journey in 2017 when he read his first blockchain book. He has since continued to learn everything there is to know about the space.',
+    //     twitterHandle: 'NFTswithNate',
+    // },
     // {
     //     name: 'Thomas Dailey',
     //     role: 'Technical Founder',

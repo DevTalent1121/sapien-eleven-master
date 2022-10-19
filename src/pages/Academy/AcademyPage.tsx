@@ -10,7 +10,6 @@ import { useDrawer } from '../../contexts/drawerContextProvider';
 import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
 import { AcademyDescription } from './AcademyDescription';
 import AcademyTabs from './AcademyTabs';
-import { AcademyVideos } from './AcademyVideos';
 import { TransitionGradient } from '../../components';
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 import {Colors } from '../../themes';

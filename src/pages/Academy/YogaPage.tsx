@@ -11,7 +11,7 @@ import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
 import { Section, SharedToolbar } from '../../components';
 import { Colors } from '../../themes';
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
-import { AcademyVideos } from './AcademyVideos';
+import { AcademyModules } from './AcademyModules';
 
 //Additional for Drawer
 
@@ -35,7 +35,6 @@ export const YogaPage = (): JSX.Element => {
     const md = useMediaQuery(theme.breakpoints.up('md'));
     // const dispatch = useDispatch();
 
-    console.log("---aa this is fitness page");
 
     const Paragraph = styled(
         Typography,
@@ -62,9 +61,7 @@ export const YogaPage = (): JSX.Element => {
                 <Paragraph>
                     Bringing the mental and physical disciplines together is important to achieve mind and body peace. Yoga has been proven to manage stress and anxiety, keeping one relaxed. 
                 </Paragraph>
-                <AcademyVideos />
-                <AcademyVideos />
-                <AcademyVideos />
+                <AcademyModules moduleType='yoga' />
             </Section>          
 
         </Box>

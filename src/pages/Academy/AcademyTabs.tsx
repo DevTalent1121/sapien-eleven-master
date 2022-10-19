@@ -10,7 +10,7 @@ import { ParallaxContainer, Section, TransitionGradient } from '../../components
 import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 import SAD from '../../assets/images/shutterstock_1543784279.jpg';
 import { Divider, Grid, styled, Theme } from '@mui/material';
-import { AcademyVideos } from './AcademyVideos';
+import { AcademyModules } from './AcademyModules';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -150,24 +150,22 @@ const useStyles = makeStyles((theme: Theme) =>
                     <Divider />        
     
                     <TabPanel value={value} index={0}>
-                      <AcademyVideos />
-                      <AcademyVideos />
-                      <AcademyVideos />
+                      <AcademyModules moduleType='fitness' />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                      <AcademyVideos />
+                      <AcademyModules moduleType='yoga' />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        <AcademyVideos />
-                  </TabPanel>
+                      <AcademyModules moduleType='nutrition' />
+                    </TabPanel>
                     <TabPanel value={value} index={3}>
-                      <AcademyVideos />
+                      <AcademyModules moduleType='diets' />
                     </TabPanel>
                     <TabPanel value={value} index={4}>
-                      <AcademyVideos />
+                      <AcademyModules moduleType='recipes' />
                     </TabPanel>
                     <TabPanel value={value} index={5}>
-                      <AcademyVideos />
+                      <AcademyModules moduleType='supplments' />
                     </TabPanel>
                 </Grid>
             </Grid>
