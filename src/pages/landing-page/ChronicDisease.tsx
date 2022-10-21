@@ -62,8 +62,9 @@ export const ChronicDisease = (): JSX.Element => {
                             }}
                         >
                             <Typography variant="h4" component="div" color={Colors.white[50]}>
-                                <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect>
-                                </Typography>
+                                {/* <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect> */}
+                                71%
+                            </Typography>
                         </Box>
                     </Box>
                     <Typography
@@ -71,7 +72,8 @@ export const ChronicDisease = (): JSX.Element => {
                         color={theme.palette.error.main}
                         sx={{ mt: 5, width: '80%', textAlign: 'center' }}
                     >
-                    <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect> OF ALL ADULT DEATHS ARE CAUSED BY CHRONIC DISEASE
+                    {/* <LinkNoEffect href='/wlmint'>{`71%`}</LinkNoEffect> OF ALL ADULT DEATHS ARE CAUSED BY CHRONIC DISEASE */}
+                    71% OF ALL ADULT DEATHS ARE CAUSED BY CHRONIC DISEASE
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} sx={chronicIllnessGridItemStyles}>
