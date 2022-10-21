@@ -7,6 +7,7 @@ import { Routes } from 'react-router-dom';
 
 import { bootstrapShopify } from './utils/utils';
 
+    
 export const App = (): JSX.Element => {
     bootstrapShopify();
     const [drawerOpen, setDrawerOpen] = useState(false);

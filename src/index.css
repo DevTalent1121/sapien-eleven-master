@@ -21,3 +21,10 @@ body {
     src: local('Besan'), url(./fonts/besan/BESAN.otf) format('opentype');
 }
 
+.simple_text{
+    text-overflow: ellipsis;
+    width:80%;
+    overflow: hidden;
+    display: block;
+
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePageTitle } from '../../hooks/usePageTitle';
+// import { usePageTitle } from '../../hooks/usePageTitle';
 import { SharedToolbar, TransitionGradient } from '../../components';
 import * as Colors from '../../themes/colors';
 
@@ -20,7 +20,7 @@ import { TRANSITION_GRADIENT_HEIGHT } from '../../shared';
 import { DefaultToolbar } from '../../components/navigation/DefaultToolbar';
 
 export const LandingPage: React.FC = (): JSX.Element => {
-    usePageTitle('');
+    // usePageTitle('');
 
     return (
         <>

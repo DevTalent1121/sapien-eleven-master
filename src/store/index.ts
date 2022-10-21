@@ -3,6 +3,7 @@ import { shopifyReducer } from "./shopify/reducers";
 import { cartUIReducer } from "./cartUI/reducers";
 import { variantsReducer } from "./variants/reducers";
 import { menuReducer } from "./menu/reducers";
+import { WalletReducer } from "./wallet/reducers";
 
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     cartUI: cartUIReducer,
     variants: variantsReducer,
     menu: menuReducer,
+    wallet: WalletReducer,
 });
 
 // const rootReducer = combineReducers({

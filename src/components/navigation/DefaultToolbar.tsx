@@ -18,6 +18,13 @@ import { styled } from '@mui/material/styles';
 import { TwitterIconSVG as TwitterIcon } from '../../assets/images/twitter_icon';
 import { PADDING } from '../../shared';
 
+
+// Wallet Library Imports
+import { useWeb3React } from "@web3-react/core"
+import { injected } from "../../components/wallet/connectors"
+import { WALLET_CONNECTED, WALLET_DISCONNECTED } from '../../store/wallet/types';
+
+// Class and Components implementation
 export type DefaultToolbarProps = AppBarProps & {
     title?: string;
     // color?: 'primary' | 'secondary' | 'default';
@@ -41,7 +48,8 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     const { title, color, backgroundColor, subtitle, navigationIcon, ...other } = props;
 
     const StyledConnectButton = styled(Button)(() => ({
-        minWidth: 150,
+        minWidth: 200,
+        width: 200,
         fontWeight: 600,
         // margin: `${theme.spacing(3)} 0 0`,
         marginLeft:'auto',
@@ -50,7 +58,8 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
 
         [theme.breakpoints.down('md')]: {
             padding: 3,
-            minWidth: 60,
+            minWidth: 100,
+            width: 100,
         },
     
     }));
@@ -81,8 +90,34 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     const dispatch = useDispatch();
     // const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const drawerOpen = useSelector((state: RootState) => state.menu.drawerOpen);
+    // const wallet_connected = useSelector((state: RootState) => state.wallet.connected);
+    // const wallet_address = useSelector((state: RootState) => state.wallet.address);
 
-       return (
+    // ****Web3 Connection Mobile
+    const { active, account, library, connector, activate, deactivate } = useWeb3React()
+
+    async function connect() {
+        if(active)
+            return;
+        try {
+            await activate(injected)
+            dispatch({ type: WALLET_CONNECTED, payload: {address: account}});
+            // store.dispatch({ type: WALLET_ADDRESSS, payload: account});
+        } catch (ex) {
+            console.log(ex)
+        }
+    }
+
+    async function disconnect() {
+        try {
+            deactivate()
+            dispatch({ type: WALLET_DISCONNECTED, payload: {address: ""}});
+        } catch (ex) {
+            console.log(ex)
+        }
+    }        
+
+    return (
         <>
             <AppBar position={'sticky'} 
             style={{
@@ -121,8 +156,8 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
                     </Typography>
                     </Box>
                     <Box sx={{display: 'flex', marginRight:'30px'}}>
-                        <StyledConnectButton variant={'outlined'} onClick={(): void => {}}>
-                                Connect
+                        <StyledConnectButton variant={'outlined'} onClick={connect}>
+                            {active ? <span className='simple_text'>{account}</span> : <span className='simple_text'>Connect</span>}
                         </StyledConnectButton>
                             {/* {connectWalletButton()} */}
                         <StyledTwitterButton

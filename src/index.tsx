@@ -17,6 +17,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { store } from './store';
 
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3 from 'web3'
+import { provider } from 'web3-core';
+
+
+
 // import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client'
 
 // const apolloClient = new ApolloClient({
@@ -32,6 +38,9 @@ import { store } from './store';
 //       fetch,
 //     }),
 //   })
+function getLibrary(provider: provider) {
+    return new Web3(provider)
+}
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Root Element was not found in the DOM');
@@ -46,10 +55,12 @@ root.render(
     <StyledEngineProvider injectFirst>
         <ThemeProvider theme={createTheme(sapienLight)}>
             <Provider store={store}>
-                <BrowserRouter>
-                    <CssBaseline />
-                    <App />
-                </BrowserRouter>
+                <Web3ReactProvider getLibrary={getLibrary}>
+                    <BrowserRouter>
+                        <CssBaseline />
+                        <App />
+                    </BrowserRouter>
+                </Web3ReactProvider>
             </Provider>
         </ThemeProvider>
     </StyledEngineProvider>
