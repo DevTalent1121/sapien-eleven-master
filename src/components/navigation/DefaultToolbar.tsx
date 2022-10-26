@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, IconButton, Theme, Toolbar, Typography, useTheme, useMediaQuery, AppBarProps, Link, Box, Button } from '@mui/material';
 import createStyles from '@mui/styles/createStyles';
@@ -22,8 +22,11 @@ import { PADDING } from '../../shared';
 // Wallet Library Imports
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "../../components/wallet/connectors"
-import { WALLET_CONNECTED, WALLET_DISCONNECTED } from '../../store/wallet/types';
 
+// import { WALLET_CONNECTED, WALLET_DISCONNECTED } from '../../store/wallet/types';
+// import { connect1 } from '../../store/wallet/actions';
+
+declare var window: any
 // Class and Components implementation
 export type DefaultToolbarProps = AppBarProps & {
     title?: string;
@@ -96,27 +99,56 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     // ****Web3 Connection Mobile
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
-    async function connect() {
-        if(active)
-            return;
-        try {
-            await activate(injected)
-            dispatch({ type: WALLET_CONNECTED, payload: {address: account}});
-            // store.dispatch({ type: WALLET_ADDRESSS, payload: account});
-        } catch (ex) {
-            console.log(ex)
+    function handleConnect(){
+        if (localStorage?.getItem('isWalletConnected') === 'true') {
+            disconnect();
+        }
+        else{
+            connect();
         }
     }
 
-    async function disconnect() {
-        try {
-            deactivate()
-            dispatch({ type: WALLET_DISCONNECTED, payload: {address: ""}});
-        } catch (ex) {
-            console.log(ex)
+    async function connect() {
+        if (typeof window.ethereum !== 'undefined') {
+            console.log('MetaMask is installed!');
+            try {
+                await activate(injected)
+                localStorage.setItem('isWalletConnected', "true")
+              } catch (ex) {
+                console.log(ex)
+              }
+        }else{
+            alert("install metamask extension!!")
         }
-    }        
+      }
+    
+      async function disconnect() {
+        try {
+          await deactivate()
+          localStorage.setItem('isWalletConnected', "false")
+        } catch (ex) {
+          console.log(ex)
+        }
+      }
 
+      useEffect(() => {
+        const connectWalletOnPageLoad = async () => {
+          if (localStorage?.getItem('isWalletConnected') === 'true') {
+            try {
+              await activate(injected)
+              localStorage.setItem('isWalletConnected', "true")
+            } catch (ex) {
+              console.log(ex)
+            }
+          }
+        }
+        connectWalletOnPageLoad()
+      }, [])
+
+    //   console.log("--account: " + account);
+    //   console.log("--active: " + active);
+      console.log("--isWalletConnected: " + localStorage?.getItem('isWalletConnected'));
+    
     return (
         <>
             <AppBar position={'sticky'} 
@@ -156,7 +188,7 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
                     </Typography>
                     </Box>
                     <Box sx={{display: 'flex', marginRight:'30px'}}>
-                        <StyledConnectButton variant={'outlined'} onClick={connect}>
+                        <StyledConnectButton variant={'outlined'} onClick={handleConnect}>
                             {active ? <span className='simple_text'>{account}</span> : <span className='simple_text'>Connect</span>}
                         </StyledConnectButton>
                             {/* {connectWalletButton()} */}

@@ -72,13 +72,13 @@ const cardData: SapienElevenCardData[] = [
             // 'An online storefront providing carefully curated and professionally formulated wellness products, supplements, apparel, and accessories',
             'An online storefront providing carefully designed and professionally formulated wellness product drops.',
     },
-    {
-        title: 'Cares System',
-        frontIcon: <Healing color={'primary'} />,
-        backIcon: <Healing color={'primary'} style={centeredCardContentIconStyles} />,
-        description:
-            'A cost-sharing fund to help those who suffer from unexpected or chronic illness, and community members seeking alternative treatment options not covered by conventional health insurance',
-    },
+    // {
+    //     title: 'Cares System',
+    //     frontIcon: <Healing color={'primary'} />,
+    //     backIcon: <Healing color={'primary'} style={centeredCardContentIconStyles} />,
+    //     description:
+    //         'A cost-sharing fund to help those who suffer from unexpected or chronic illness, and community members seeking alternative treatment options not covered by conventional health insurance',
+    // },
 ];
 const sapienElevenFlipCardStyles = {
     minHeight: { xs: 337, sm: 265, md: 362, lg: 396, xl: 396 },
@@ -130,7 +130,7 @@ export const WhatIsSapienEleven = (): JSX.Element => {
             </Paragraph> */}
             <Grid container spacing={2} sx={{ mt: 1 }}>
                 {cardData.map((data) => (
-                    <Grid key={data.title} item xs={12} sm={12} md={6} lg={4} xl={4}>
+                    <Grid key={data.title} item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <FlipCard useHover sx={sapienElevenFlipCardStyles}>
                             <Card sx={cardStyles} elevation={4}>
                                 <CenteredCardContent>

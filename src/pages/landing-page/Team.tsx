@@ -114,7 +114,7 @@ export const Team = (): JSX.Element => {
 
     return (
         <Section
-            title={'Team'}
+            title={'Doxxed'}
             align={'left'}
             background={'light'}
             sx={{ px: md ? 2 : 4, pt: 4, pb: `${32 + TRANSITION_GRADIENT_HEIGHT}px` }}
