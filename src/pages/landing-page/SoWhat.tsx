@@ -103,7 +103,7 @@ export const SoWhat = (): JSX.Element => {
                                     Physical Activity
                                 </Typography>
                                 <Paragraph sx={soWhatParagraphStyles}>
-                                    It's not secret, physically activity has numerous health benefits. 
+                                    It's no secret, physical activity has numerous health benefits. 
                                 </Paragraph>
                                 <Paragraph sx={soWhatParagraphStyles}>
                                 Improved strength, weight management, and reduced risk of disease being at the top of the list.

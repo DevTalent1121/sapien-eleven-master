@@ -3,7 +3,7 @@ import ProductComponent from "./ProductComponent";
 import { useSelector } from 'react-redux';
 import { Product } from "shopify-buy";
 import { RootState } from "../../store";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, LinearProgress } from "@mui/material";
 
 export default function Products() {
   const { products } = useSelector((state: RootState) => state.shopify)
@@ -28,6 +28,6 @@ export default function Products() {
       </Box>
     );
   } else {
-    return <p>Loading...</p>;
+    return <LinearProgress />;
   }
 }
