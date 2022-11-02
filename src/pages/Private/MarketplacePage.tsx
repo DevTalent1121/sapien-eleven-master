@@ -87,7 +87,7 @@ export const MarketplacePage: React.FC = (): JSX.Element => {
                 </StyledTypography>
                 {/* <DisplayProducts />  */}
                 <CartButton onClick={()=>setCartOpen(true)}>
-                    <Badge badgeContent={cart?.lineItemCount} color="error">
+                    <Badge badgeContent={cart?.lineItems.length} color="error">
                         <AddShoppingCart />
                     </Badge>
                 </CartButton>

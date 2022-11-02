@@ -33,7 +33,7 @@ export async function bootstrapShopify(): Promise<void> {
 
         // cart
         const cart = await client.checkout.create();
-        cart.lineItemCount = 0;
+        // cart.lineItemCount = 0;
         store.dispatch({ type: CHECKOUT_CREATED, payload: { cart } });
 
         // shop

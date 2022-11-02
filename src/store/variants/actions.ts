@@ -7,7 +7,6 @@ import {
 export function handleQuantityChange(
     event: React.ChangeEvent<HTMLInputElement>
 ) {
-    console.log("quanity");
     store.dispatch({
         type: SET_SELECTED_VARIANT_QUANTITY,
         payload: {
@@ -22,17 +21,14 @@ export function handleOptionChange(
 ) {
     const { shopify } = store.getState();
     const { client } = shopify;
-    let selectedOptions: any;
-    console.log("selected");
+    let selectedOptions: any = [];
     product.options.forEach((selector) => {
-        selectedOptions = new Array();
+        console.log(selector)
         selectedOptions[selector.name] = selector.values[0].value;
     });
 
     const target = event.target;
     selectedOptions[target.name] = target.value;
-
-    console.log(client?.product.variantForOptions);
 
     if (client) {
         const selectedVariant = client.product.variantForOptions(

@@ -26,7 +26,7 @@ export default function LineItemComponent(props: ILineItemProps) {
       <div className="Line-item__content">
         <div className="Line-item__content-row">
           <div className="Line-item__variant-title">
-            {lineItem.variantTitle}
+            {lineItem.variant.title}
           </div>
           <span className="Line-item__title">{lineItem.title}</span>
         </div>
@@ -47,8 +47,8 @@ export default function LineItemComponent(props: ILineItemProps) {
             </button>
           </div>
           <span className="Line-item__price">
-            {/* $ {(lineItem.quantity * parseFloat(lineItem.price)).toFixed(2)} */}
-            $ {lineItem.attrs.variant.price}
+            $ {(lineItem.quantity * parseFloat(lineItem.variant.priceV2.amount)).toFixed(2)}
+            {/* $ {lineItem.variant.priceV2.amount} */}
           </span>
           <button
             className="Line-item__remove"

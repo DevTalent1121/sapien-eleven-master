@@ -38,7 +38,7 @@ export default function Cart() {
                         Subtotal
                     </div>
                     <div className="Cart-info__pricing">
-                        <span className="pricing">$ {cart?.subtotalPrice}</span>
+                        <span className="pricing">$ {cart?.subtotalPriceV2.amount}</span>
                     </div>
                 </div>
                 <div className="Cart-info clearfix">
@@ -46,7 +46,7 @@ export default function Cart() {
                         Taxes
                     </div>
                     <div className="Cart-info__pricing">
-                        {/* <span className="pricing">$ {cart.totalTax}</span> */}
+                        <span className="pricing">$ {cart?.totalTaxV2.amount}</span>
                     </div>
                 </div>
                 <div className="Cart-info clearfix">
@@ -54,7 +54,7 @@ export default function Cart() {
                         Total
                     </div>
                     <div className="Cart-info__pricing">
-                        {/* <span className="pricing">$ {cart.totalPrice}</span> */}
+                        <span className="pricing">$ {cart?.totalPriceV2.amount}</span>
                     </div>
                 </div>
                 <div className="Cart-info clearfix">
@@ -63,7 +63,7 @@ export default function Cart() {
                     </div>
                     <div className="Cart-info__pricing">
                         <span className="pricing">
-                            {/* ~$ {(cart.totalPrice * 0.35).toFixed(2)} */}
+                            {/* ~$ {(cart?.totalPrice * 0.35).toFixed(2)} */}
                         </span>
                     </div>
                 </div>
