@@ -77,7 +77,7 @@ export default function ProductComponent(props: IProductProps) {
       { (product.images[0])?  (
         // <Box className="image_div" sx={{width:'100%', height:'200px', backgroundImage: `url(${product.images[0].src})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat',backgroundPosition: 'center'}}>
         <Box>
-          <Box className="image_div" onClick={handleModalOpen} sx={{width:'100%', height:'200px', backgroundImage: `url(${variantImage.src})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat',backgroundPosition: 'center'}}>
+          <Box className="image_div" onClick={handleModalOpen} sx={{width:'100%', height:'200px', backgroundImage: `url(${variantImage.src})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat',backgroundPosition: 'center', cursor:'pointer'}}>
           </Box>
           <Modal
               open = {modal_open}
