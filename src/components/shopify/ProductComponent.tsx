@@ -64,7 +64,7 @@ export default function ProductComponent(props: IProductProps) {
     boxShadow: 24,
     p: 4,
   };
-  
+
   return (
   <Box className="Product">
     <Card elevation={4}>
@@ -87,7 +87,7 @@ export default function ProductComponent(props: IProductProps) {
             >
               <Box sx={ModalStyle}>
                 <Button onClick={handleModalClose} sx={{float:'right', marginTop:-4, marginRight:-4}}>X</Button>
-                  <ImageGallery items={images} showThumbnails={false} />
+                  <ImageGallery items={images} showThumbnails={false} showFullscreenButton={false} />
               </Box>
           </Modal>
           
@@ -98,8 +98,8 @@ export default function ProductComponent(props: IProductProps) {
         </Box>
       ) }
         {/* <Typography mt={1}>{variant.price.currencyCode}{variant.price.amount}</Typography> */}
-        <Typography mt={1}>${variant.price.amount}</Typography>
-        <Divider />
+        <Typography mt={1}>${JSON.parse(JSON.stringify(variant.price)).amount}</Typography>
+        <Divider sx={{marginBottom:'5px'}} />
         {
           product.options.map((option) => {
             return <VariantSelector 
