@@ -41,7 +41,8 @@ export default function ProductComponent(props: IProductProps) {
   // }
   const handleChangeProductOptions = (event: React.ChangeEvent<HTMLSelectElement>) =>{
     console.log("-----Option has changed");
-    console.log(event.target.name);
+    // console.log(event.target.name);
+    // product.selectedVariant = variant;
     handleOptionChange(event, product);
   }
   

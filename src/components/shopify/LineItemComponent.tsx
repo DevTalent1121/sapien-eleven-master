@@ -27,7 +27,7 @@ export default function LineItemComponent(props: ILineItemProps) {
         <div className="Line-item__content-row">
           <div className="Line-item__variant-title">
             {/* {lineItem.variant.title} */}
-            {lineItem.variantTitle}
+            {lineItem.attrs.variant.title}
           </div>
           <span className="Line-item__title">{lineItem.title}</span>
         </div>

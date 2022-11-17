@@ -12,12 +12,12 @@ export function addVariantToCart(variantId: string | number, quantity: number) {
     if (cart && client) {
         const checkoutId = cart.id;
         // client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-        console.log(client.product.variantForOptions);
+        // console.log(client.product.variantForOptions);
         client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
             // Do something with the updated checkout
             // checkout.lineItemCount = cart.lineItemCount + quantity;
 
-            console.log(checkout.lineItems.length);
+            // console.log(checkout.lineItems.length);
             store.dispatch({ type: CHECKOUT_CREATED, payload: { cart: checkout } });
             // console.log(checkout.lineItems[0].va);
         });
