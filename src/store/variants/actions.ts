@@ -59,7 +59,6 @@ export function handleOptionChange(
                 });
             }
           });
-          console.log(selectedVariant)
         // const selectedVariant = client.product.variantForOptions(
         //     product,
         //     selectedOptions
@@ -67,6 +66,9 @@ export function handleOptionChange(
 
         if(selectedVariant){
             product.selectedVariant = selectedVariant
+            product.selectedVariantImage = selectedVariant.attrs.image
+            // console.log(selectedVariant.attrs.image)
+            // console.log(product.selectedVariantImage)
             store.dispatch({
                 type: SET_SELECTED_VARIANT_AND_VARIANT_IMAGE,
                 payload: {

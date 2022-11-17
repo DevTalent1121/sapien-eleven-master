@@ -24,8 +24,8 @@ export default function ProductComponent(props: IProductProps) {
     selectedVariantImage,
     selectedVariantQuantity,
   } = variants;
-  const variantImage = selectedVariantImage || product.images[0];
-  const variant = selectedVariant || product.variants[0];
+  const variantImage = product.selectedVariantImage || product.images[0];
+  const variant = product.selectedVariant || product.variants[0];
   const variantQuantity = selectedVariantQuantity || 1;
 
   const [product_quantity, setProductQuantity] = useState(1);
