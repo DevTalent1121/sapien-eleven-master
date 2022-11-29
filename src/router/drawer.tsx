@@ -117,7 +117,7 @@ export const NavigationDrawer: React.FC = () => {
                 items={drawerItems}
              />
              {/* {{isWalletConnected?}} */}
-            <Box sx={{margin:2, padding:2, border:"1px solid #ca3c3d"}}>
+            <Box sx={{margin:2, padding:2, border:"1px solid #ca3c3d"}} hidden={isWalletConnected}>
                 <Typography sx={{textAlign:"center"}}>Connect Wallet or click below to join Sapien Eleven</Typography> 
                 <JoinSapienElevenButton>Join Sapien Eleven</JoinSapienElevenButton>
             </Box>
