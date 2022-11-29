@@ -96,6 +96,7 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     // const wallet_connected = useSelector((state: RootState) => state.wallet.connected);
     // const wallet_address = useSelector((state: RootState) => state.wallet.address);
 
+    
     // ****Web3 Connection Mobile
     const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
@@ -124,8 +125,8 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     
       async function disconnect() {
         try {
-          await deactivate()
-          localStorage.setItem('isWalletConnected', "false")
+            localStorage.setItem('isWalletConnected', "false")
+            await deactivate()
         } catch (ex) {
           console.log(ex)
         }
@@ -146,7 +147,7 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
       }, [])
 
     //   console.log("--account: " + account);
-    //   console.log("--active: " + active);
+      console.log("--active: " + active);
       console.log("--isWalletConnected: " + localStorage?.getItem('isWalletConnected'));
     
     return (

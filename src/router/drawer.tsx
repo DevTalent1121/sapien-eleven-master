@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
 import { useNavigate, useLocation } from 'react-router';
 import Menu from '@mui/icons-material/Menu';
 import { Drawer, DrawerBody, DrawerHeader, DrawerNavGroup, DrawerNavItem } from '@brightlayer-ui/react-components';
@@ -8,6 +10,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../store";
 
 import { TOGGLE_DRAWER } from '../store/menu/actions';
+import { textAlign } from '@mui/system';
+
+const JoinSapienElevenButton = styled(Button)(() => ({
+    minWidth: '50%',
+    width: '80%',
+    fontWeight: 600,
+    margin: "20px auto",
+    // margin: `${theme.spacing(3)} 0 0`,
+    borderColor: '#ca3c3d',
+    color: '#ca3c3d',
+    border: "1px solid #ca3c3d",
+    display: "block",
+
+
+}));
 
 export const NavigationDrawer: React.FC = () => {
     const drawerOpen = useSelector((state: RootState) => state.menu.drawerOpen);
@@ -26,7 +43,52 @@ export const NavigationDrawer: React.FC = () => {
         },
         [navigate, setSelected]
     );
+    const isWalletConnected = (localStorage?.getItem('isWalletConnected')==="true")
+    console.log("--drawer wallet connected status--"+isWalletConnected)
 
+    const drawerItems = PAGES.map((page) => {
+            console.log(page.private)
+            // if(!page.private)
+            {
+                const Icon = page.icon;
+                let t_item = undefined;
+                if(page?.items != undefined){ 
+                    t_item = page.items?.map((item)=>{
+                        return {
+                            title: item.title,
+                            itemID: `${page.route}/${item.route}` || '',
+                            // icon: <Icon />,
+                            onClick:
+                                item.route !== undefined
+                                    ? (): void => {
+                                        handleNavigate(`${page.route}/${item.route}`);
+                                        /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                    }
+                                    : undefined,
+                                    }
+                    }) 
+                }
+                return {
+                    title: page.title,
+                    itemID: page.route || '',
+                    icon: <Icon />,
+                    hidden: page.private && !isWalletConnected,
+                    onClick:
+                        page.route !== undefined
+                            ? (): void => {
+                                  handleNavigate(page.route);
+                                  /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                              }
+                            : undefined,
+                    items: t_item
+                }; 
+            }
+        })
+        // drawerItems = drawerItems.filter(function( element ) {
+        //     return element !== undefined;
+        //  });
+
+         console.log(drawerItems)
     return (
         <Drawer
             open={drawerOpen}
@@ -52,39 +114,13 @@ export const NavigationDrawer: React.FC = () => {
                 <DrawerNavGroup
                 hidePadding={false}
                 
-                    items={PAGES.map((page) => {
-                        const Icon = page.icon;
-                        let t_item = null;
-                        page.items? 
-                        t_item = page.items?.map((item)=>{
-                            return {
-                                title: item.title,
-                                itemID: `${page.route}/${item.route}` || '',
-                                // icon: <Icon />,
-                                onClick:
-                                    item.route !== undefined
-                                        ? (): void => {
-                                            handleNavigate(`${page.route}/${item.route}`);
-                                              /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-                                          }
-                                        : undefined,
-                                        }
-                        }) : undefined
-                        return {
-                            title: page.title,
-                            itemID: page.route || '',
-                            icon: <Icon />,
-                            onClick:
-                                page.route !== undefined
-                                    ? (): void => {
-                                          handleNavigate(page.route);
-                                          /*if (isMobile)*/ dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-                                      }
-                                    : undefined,
-                            items: t_item
-                        };
-                    })}
-                />
+                items={drawerItems}
+             />
+             {/* {{isWalletConnected?}} */}
+            <Box sx={{margin:2, padding:2, border:"1px solid #ca3c3d"}}>
+                <Typography sx={{textAlign:"center"}}>Connect Wallet or click below to join Sapien Eleven</Typography> 
+                <JoinSapienElevenButton>Join Sapien Eleven</JoinSapienElevenButton>
+            </Box>
             </DrawerBody>
         </Drawer>
     );

@@ -2,6 +2,7 @@ import { LandingPage , AcademyPage, /*PageTwo*/  } from '../pages';
 import Home from '@mui/icons-material/Home';
 import LooksOne from '@mui/icons-material/LooksOne';
 import LooksTwo from '@mui/icons-material/LooksTwo';
+import LooksThree from '@mui/icons-material/Looks3';
 import { FitnessPage } from '../pages/Academy/FitnessPage';
 import { NutritionPage } from '../pages/Academy/NutritionPage';
 import { DietsPage } from '../pages/Academy/DietsPage';
@@ -9,6 +10,8 @@ import { RecipesPage } from '../pages/Academy/RecipesPage';
 import { SupplementsPage } from '../pages/Academy/SupplementsPage';
 import { YogaPage } from '../pages/Academy/YogaPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
+import { MarketplacePage } from '../pages/Private/MarketplacePage';
+import { UpdatePage } from '../pages/Private/UpdatePage';
 // import { Engineering } from '@mui/icons-material';
 
 export const PAGES = [
@@ -62,6 +65,20 @@ export const PAGES = [
             },
         ]
     },
+    {
+        title: 'Marketplace',
+        route: 'marketplace',
+        component: MarketplacePage,
+        private: true,
+        icon: LooksTwo,
+    },
+    {
+        title: 'Updates',
+        route: 'updates',
+        component: UpdatePage,
+        private: true,
+        icon: LooksThree,
+    },
     // {
     //     title: 'WL Game',
     //     route: 'thekitchen',
@@ -70,4 +87,13 @@ export const PAGES = [
     //     icon: LooksTwo,
     // },
 ];
+// export const PRIVATE_PAGES = [
+//     {
+//         title: 'Marketplace',
+//         route: 'marketplace',
+//         component: MarketplacePage,
+//         private: true,
+//         icon: LooksTwo,
+//     },
+// ]
 
