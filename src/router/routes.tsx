@@ -12,6 +12,8 @@ import { YogaPage } from '../pages/Academy/YogaPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 import { MarketplacePage } from '../pages/Private/MarketplacePage';
 import { UpdatePage } from '../pages/Private/UpdatePage';
+import { MintSapienOGPage } from '../pages/Private/MintSapienOG';
+
 // import { Engineering } from '@mui/icons-material';
 
 export const PAGES = [

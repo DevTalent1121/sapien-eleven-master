@@ -7,6 +7,7 @@ import { ShopPage } from '../pages/Private/ShopPage';
 import { ThekitchenPage } from '../pages/Private/ThekitchenPage';
 import { UpdatePage } from '../pages/Private/UpdatePage';
 import { WLMintPage } from '../pages/Private/WLmint';
+import { MintSapienOGPage } from '../pages/Private/MintSapienOG';
 import { PAGES } from './routes';
 
 export const MainRouter = (
@@ -38,6 +39,7 @@ export const MainRouter = (
         <Route key={`route_shop`} path={`shop`} element={<ShopPage />} />;
         <Route key={`route_marketplace`} path={`marketplace`} element={<MarketplacePage />} />;
         <Route key={`route_updates`} path={`updates`} element={<UpdatePage />} />;
+        <Route key={`route_mint_sapienOG`} path={`mint`} element={<MintSapienOGPage />} />;
         <Route path={'*'} element={<Navigate to={'/'} />} />
     </>
 );

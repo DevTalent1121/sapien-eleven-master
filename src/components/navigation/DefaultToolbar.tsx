@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, IconButton, Theme, Toolbar, Typography, useTheme, useMediaQuery, AppBarProps, Link, Box, Button } from '@mui/material';
 import createStyles from '@mui/styles/createStyles';
@@ -22,6 +22,8 @@ import { PADDING } from '../../shared';
 // Wallet Library Imports
 import { useWeb3React } from "@web3-react/core"
 import { injected } from "../../components/wallet/connectors"
+
+import { connectWallet, getCurrentWalletConnected } from "../../utils/interact"
 
 // import { WALLET_CONNECTED, WALLET_DISCONNECTED } from '../../store/wallet/types';
 // import { connect1 } from '../../store/wallet/actions';
@@ -96,59 +98,99 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
     // const wallet_connected = useSelector((state: RootState) => state.wallet.connected);
     // const wallet_address = useSelector((state: RootState) => state.wallet.address);
 
+    const [walletAddress, setWallet] = useState("");
+    const [status, setStatus] = useState("");
     
     // ****Web3 Connection Mobile
-    const { active, account, library, connector, activate, deactivate } = useWeb3React()
+    // const { active, account, library, connector, activate, deactivate } = useWeb3React()
 
-    function handleConnect(){
-        if (localStorage?.getItem('isWalletConnected') === 'true') {
-            disconnect();
-        }
-        else{
-            connect();
+    const handleConnect = async () =>{
+        const walletResponse = await connectWallet();
+        console.log(walletResponse)
+        setStatus(walletResponse.status);
+        setWallet(walletResponse.address);
+        // if (localStorage?.getItem('isWalletConnected') === 'true') {
+        //     disconnect();
+        // }
+        // else{
+        //     connect();
+        // }
+    }
+    function addWalletListener() {
+        if (window.ethereum) {
+            window.ethereum.on("accountsChanged", (accounts:any) => {
+            if (accounts.length > 0) {
+                setWallet(accounts[0]);
+                setStatus("👆🏽 Write a message in the text-field above.");
+            } else {
+                setWallet("");
+                setStatus("🦊 Connect to Metamask using the top right button.");
+            }
+        });
+        } else {
+        setStatus("");
+        //     <p>
+        //     {" "}
+        //     🦊{" "}
+        //     <a target="_blank" href={`https://metamask.io/download.html`}>
+        //         You must install Metamask, a virtual Ethereum wallet, in your
+        //         browser.
+        //     </a>
+        //     </p>
+        // );
         }
     }
 
-    async function connect() {
-        if (typeof window.ethereum !== 'undefined') {
-            console.log('MetaMask is installed!');
-            try {
-                await activate(injected)
-                localStorage.setItem('isWalletConnected', "true")
-              } catch (ex) {
-                console.log(ex)
-              }
-        }else{
-            alert("install metamask extension!!")
-        }
-      }
+    // async function connect() {
+    //     if (typeof window.ethereum !== 'undefined') {
+    //         console.log('MetaMask is installed!');
+    //         try {
+    //             await activate(injected)
+    //             localStorage.setItem('isWalletConnected', "true")
+    //             console.log("on connect- "+ account)
+    //             if(account){
+    //                 localStorage.setItem('walletAddress', account)
+    //             }
+    //         } catch (ex) {
+    //             console.log(ex)
+    //           }
+    //     }else{
+    //         alert("install metamask extension!!")
+    //     }
+    //   }
     
-      async function disconnect() {
-        try {
-            localStorage.setItem('isWalletConnected', "false")
-            await deactivate()
-        } catch (ex) {
-          console.log(ex)
-        }
-      }
+    //   async function disconnect() {
+    //     try {
+    //         localStorage.setItem('isWalletConnected', "false")
+    //         localStorage.setItem('walletAddress', "")
+    //         await deactivate()
+    //     } catch (ex) {
+    //       console.log(ex)
+    //     }
+    //   }
 
-      useEffect(() => {
+      useEffect( () => {
         const connectWalletOnPageLoad = async () => {
-          if (localStorage?.getItem('isWalletConnected') === 'true') {
-            try {
-              await activate(injected)
-              localStorage.setItem('isWalletConnected', "true")
-            } catch (ex) {
-              console.log(ex)
-            }
-          }
+        //   if (localStorage?.getItem('isWalletConnected') === 'true') {
+        //     try {
+        //       await activate(injected)
+        //       localStorage.setItem('isWalletConnected', "true")
+        //     } catch (ex) {
+        //       console.log(ex)
+        //     }
+        //   }
+            const {address, status} = await getCurrentWalletConnected();
+            setWallet(address)
+            setStatus(status); 
+
+            addWalletListener();
         }
         connectWalletOnPageLoad()
       }, [])
 
     //   console.log("--account: " + account);
-      console.log("--active: " + active);
-      console.log("--isWalletConnected: " + localStorage?.getItem('isWalletConnected'));
+    //   console.log("--active: " + active);
+    //   console.log("--isWalletConnected: " + localStorage?.getItem('isWalletConnected'));
     
     return (
         <>
@@ -190,7 +232,15 @@ export const DefaultToolbar = (props: DefaultToolbarProps): JSX.Element => {
                     </Box>
                     <Box sx={{display: 'flex', marginRight:'30px'}}>
                         <StyledConnectButton variant={'outlined'} onClick={handleConnect}>
-                            {active ? <span className='simple_text'>{account}</span> : <span className='simple_text'>Connect</span>}
+                            {/* {active ? <span className='simple_text'>{account}</span> : <span className='simple_text'>Connect</span>} */}
+                            {walletAddress.length > 0 ? (
+                                // "Connected: " +
+                                String(walletAddress).substring(0, 6) +
+                                "..." +
+                                String(walletAddress).substring(38)
+                            ) : (
+                                <span>Connect Wallet</span>
+                            )}                            
                         </StyledConnectButton>
                             {/* {connectWalletButton()} */}
                         <StyledTwitterButton
